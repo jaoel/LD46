@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        Physics.queriesHitTriggers = true;
+    }
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
