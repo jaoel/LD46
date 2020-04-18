@@ -8,15 +8,23 @@ public class TheToggler : MonoBehaviour
 
     public bool Toggled { get; private set; } = false;
 
+    private void Start() {
+        SetGameObjectsToggled(Toggled);
+    }
+
     public void Toggle(bool toggled) {
         if (Toggled != toggled) {
-            foreach(GameObject go in _onObjects) {
-                go.SetActive(toggled);
-            }
-            foreach (GameObject go in _offObjects) {
-                go.SetActive(!toggled);
-            }
+            SetGameObjectsToggled(toggled);
         }
         Toggled = toggled;
+    }
+
+    private void SetGameObjectsToggled(bool toggled) {
+        foreach (GameObject go in _onObjects) {
+            go.SetActive(toggled);
+        }
+        foreach (GameObject go in _offObjects) {
+            go.SetActive(!toggled);
+        }
     }
 }
