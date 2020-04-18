@@ -200,6 +200,10 @@ public class GameManager : MonoBehaviour
             CreateRandomBreakables(_panelConfiguration, PanelSize.SMALL, x);
         });
 
+        panelConfig.MediumLandscapePanels.ForEach(x =>
+        {
+            CreateRandomBreakables(panelConfig, PanelSize.MEDIUM_LANDSCAPE, x);
+        });
         _startTime = Time.time;
     }
 
@@ -290,6 +294,12 @@ public class GameManager : MonoBehaviour
             case PanelSize.SMALL:
                 {
                     prefab = _breakableContainer.GetRandomSmallBreakable();
+                    InstantiatePanel(prefab, parentPanel.transform.parent.gameObject,
+                        parentPanel.transform.localPosition, parentPanel.transform.rotation);
+                }
+                break;
+            case PanelSize.MEDIUM_LANDSCAPE: {
+                    prefab = _breakableContainer.GetRandomMediumLandscapeBreakable();
                     InstantiatePanel(prefab, parentPanel.transform.parent.gameObject,
                         parentPanel.transform.localPosition, parentPanel.transform.rotation);
                 }

@@ -87,16 +87,17 @@ public class Wire : MonoBehaviour {
                 _isGrabbed = true;
                 pickingUpAnyWire = true;
                 if (connectedWireInput != null) {
-                    connectedWireInput.connectedWire = null;
+                    connectedWireInput.Disconnect();
                     connectedWireInput = null;
                 }
             }
         } else if (Input.GetMouseButtonUp(0)) {
             pickingUpAnyWire = false;
             _isGrabbed = false;
-            if (closestWireInput != null && closestWireInput.connectedWire == null) {
-                connectedWireInput = closestWireInput;
-                closestWireInput.connectedWire = this;
+            if (closestWireInput != null) {
+                if (closestWireInput.Connect(this)) {
+                    connectedWireInput = closestWireInput;
+                }
             }
         }
 
@@ -116,7 +117,7 @@ public class Wire : MonoBehaviour {
                 Vector3 toVector = (transform.position + transform.forward * 0.1f) - plug.transform.position;
                 Quaternion to = Quaternion.FromToRotation(Vector3.forward, toVector);
 
-                if (closestWireInput != null && closestWireInput.connectedWire == null) {
+                if (closestWireInput != null && !closestWireInput.Connected) {
                     Vector3 toClosestVector = plug.transform.position - closestWireInput.transform.position;
                     Quaternion toClosest = Quaternion.FromToRotation(Vector3.forward, toClosestVector);
                     float distT = 1f - Mathf.Clamp01(Vector3.Distance(plug.transform.position, closestWireInput.transform.position) / 0.75f - 0.5f);
@@ -132,7 +133,7 @@ public class Wire : MonoBehaviour {
                 }
             }
         } else if (connectedWireInput != null) {
-            connectedWireInput.connectedWire = this;
+            connectedWireInput.Connect(this);
             plug.transform.position = connectedWireInput.transform.position + connectedWireInput.transform.forward * 0.058f;
             plug.transform.rotation = connectedWireInput.transform.rotation;
             anchorB.anchoredPosition = plug.transform.position + connectedWireInput.transform.forward * thickness;

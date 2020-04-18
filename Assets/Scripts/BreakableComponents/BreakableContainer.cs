@@ -13,9 +13,13 @@ public class BreakableContainer : MonoBehaviour
     [SerializeField]
     private List<GameObject> _smallBreakables = new List<GameObject>();
 
+    [SerializeField]
+    private List<GameObject> _mediumLandscapeBreakables = new List<GameObject>();
+
     public List<GameObject> Largebreakables => _largeBreakables;
     public List<GameObject> MediumBreakables => _mediumBreakables;
     public List<GameObject> SmallBreakables => _smallBreakables;
+    public List<GameObject> MediumLandscapeBreakables => _mediumLandscapeBreakables;
 
     public GameObject GetRandomLargeBreakable()
     {
@@ -29,5 +33,10 @@ public class BreakableContainer : MonoBehaviour
     public GameObject GetRandomSmallBreakable()
     {
         return _smallBreakables[UnityEngine.Random.Range(0, _smallBreakables.Count)];
+    }
+
+    public GameObject GetRandomMediumLandscapeBreakable()
+    {
+        return _mediumLandscapeBreakables[UnityEngine.Random.Range(0, _mediumLandscapeBreakables.Count)];
     }
 }

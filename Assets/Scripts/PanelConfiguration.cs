@@ -6,7 +6,8 @@ public enum PanelSize
 {
     LARGE,
     MEDIUM,
-    SMALL
+    SMALL,
+    MEDIUM_LANDSCAPE,
 }
 
 public class PanelConfiguration : MonoBehaviour
@@ -26,8 +27,12 @@ public class PanelConfiguration : MonoBehaviour
     [SerializeField]
     List<GameObject> _smallPanels = new List<GameObject>();
 
+    [SerializeField]
+    List<GameObject> _mediumLandscapePanels = new List<GameObject>();
+
     public List<GameObject> LargePanels => _largePanels;
     public List<GameObject> MediumPanels => _mediumPanels;
+    public List<GameObject> MediumLandscapePanels => _mediumLandscapePanels;
     public List<GameObject> SmallPanels => _smallPanels;
 
     public GameObject UpperPanelContainer => _upperPanelContainer;

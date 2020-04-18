@@ -18,13 +18,12 @@ public class RGBBreakableComponent : BreakableComponent
     private int _currentError = int.MaxValue;
     private string _currentCode;
 
-    private float _glowStrength = 5.0f;
     private Vector3 _defaultColor = new Vector3(1.0f, 1.0f, 1.0f);
 
     private void Start()
     {
         _toggler.Toggle(true);
-        _colorControl.SetColor(_defaultColor * _glowStrength);
+        _colorControl.SetColor(ColorPalette.GetLEDEmissiveColor(_defaultColor));
     }
     protected override void Update()
     {
@@ -41,12 +40,13 @@ public class RGBBreakableComponent : BreakableComponent
             _currentCode = string.Empty;
 
             string errorCode = _errorCodes[_currentError];
-            _colorControl.SetColor(new Vector3((int)Char.GetNumericValue(errorCode[0]), 
-                (int)Char.GetNumericValue(errorCode[1]), (int)Char.GetNumericValue(errorCode[2])) * _glowStrength);
+            Vector3 color = new Vector3((int)Char.GetNumericValue(errorCode[0]),
+                (int)Char.GetNumericValue(errorCode[1]), (int)Char.GetNumericValue(errorCode[2]));
+            _colorControl.SetColor(ColorPalette.GetLEDEmissiveColor(color));
         }
         else if (state == BreakableState.FUNCTIONAL)
         {
-            _colorControl.SetColor(_defaultColor * _glowStrength);
+            _colorControl.SetColor(ColorPalette.GetLEDEmissiveColor(_defaultColor));
         }
 
     }
