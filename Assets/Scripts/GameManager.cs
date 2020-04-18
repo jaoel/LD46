@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     public int BrokenComponentCount => _breakableComponents.Where(x => x.State == BreakableState.BROKEN).Count();
     public int DeadComponentCount => _breakableComponents.Where(x => x.State == BreakableState.DEAD).Count();
+    public float DayCompleteAmount => Mathf.Clamp01((Time.time - _startTime) / _timelimit);
 
     private void Awake()
     {

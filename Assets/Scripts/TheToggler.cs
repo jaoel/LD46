@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TheToggler : MonoBehaviour
-{
+public class TheToggler : MonoBehaviour {
+    [SerializeField] private bool toggledOnStart = false;
     [SerializeField] private List<GameObject> _onObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> _offObjects = new List<GameObject>();
 
     public bool Toggled { get; private set; } = false;
 
     private void Start() {
+        Toggled = toggledOnStart;
         SetGameObjectsToggled(Toggled);
     }
 
