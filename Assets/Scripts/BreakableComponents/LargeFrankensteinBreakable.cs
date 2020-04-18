@@ -15,6 +15,7 @@ public class LargeFrankensteinBreakable : BreakableComponent
         _lightbulbs.ForEach(x =>
         {
             x.Toggle(true);
+            x.transform.Rotate(Vector3.forward, UnityEngine.Random.Range(0.0f, 360.0f));
         });
 
         _levers.ForEach(x =>
