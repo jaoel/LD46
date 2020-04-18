@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class BreakableComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected BreakableState _state;
 
-    // Update is called once per frame
-    void Update()
+    public BreakableState State => _state;
+
+    public virtual void SetState(BreakableState state)
     {
-        
+        _state = state;
     }
 }
