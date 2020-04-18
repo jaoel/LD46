@@ -2,15 +2,10 @@
 using UnityEngine;
 
 public class TheToggler : MonoBehaviour {
-    [SerializeField] private bool toggledOnStart = false;
     [SerializeField] private List<GameObject> _onObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> _offObjects = new List<GameObject>();
 
     public bool Toggled { get; private set; } = false;
-
-    private void Awake() {
-        Toggled = toggledOnStart;
-    }
 
     private void Start() {
         SetGameObjectsToggled(Toggled);

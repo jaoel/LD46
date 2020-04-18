@@ -34,6 +34,7 @@ public class Monitor : MonoBehaviour {
 
     private void Start() {
         gameManager = FindObjectOfType<GameManager>();
+        powerToggler.Toggle(true);
     }
 
     private void Update() {
