@@ -15,22 +15,25 @@ public class GameManager : MonoBehaviour
     private int _maxDeadBreakables = 0;
 
     [SerializeField]
-    private float _timelimit = 20.0f;
+    private float _timelimit = 10.0f;
     private float _startTime;
 
     [SerializeField]
     private float _deadTimelimit = 20.0f;
-    private float _deadTimePassed = 0.0f;
-
-    private bool _paused = false;
 
     [SerializeField]
     private GameObject _baseStation;
 
     [SerializeField]
-    private Canvas _UI;
+    private UIManager _uiManager;
 
     private List<BreakableComponent> _breakableComponents = new List<BreakableComponent>();
+    private PanelConfiguration _panelConfiguration;
+
+    private int _currentLevel;
+    private bool _paused = false;
+    private float _deadTimePassed = 0.0f;
+    private bool _dead = false;
 
     public int BrokenComponentCount => _breakableComponents.Where(x => x.State == BreakableState.BROKEN).Count();
     public int DeadComponentCount => _breakableComponents.Where(x => x.State == BreakableState.DEAD).Count();
@@ -38,17 +41,61 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Physics.queriesHitTriggers = true;
+        _currentLevel = 1;
     }
     void Start()
     {
-        GenerateStation();
+        StartGame();
+    }
+
+    private void StartGame()
+    {
+        _dead = false;
+        _paused = false;
+        _deadTimePassed = 0.0f;
+
+        _currentLevel = 1;
+        _uiManager.FadeText(4.0f, true, "Day " + _currentLevel + "...", () =>
+        {
+            if (_panelConfiguration != null)
+            {
+                Destroy(_panelConfiguration.gameObject);
+            }
+
+            GenerateStation();
+            _uiManager.Fade(2.0f, true, "Day " + _currentLevel + "...", () =>
+            {
+                Physics.queriesHitTriggers = true;
+            });
+        });
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (_dead)
         {
-            _breakableComponents[0].SetState(BreakableState.BROKEN);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                //Go to main menu
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return) ||Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                _uiManager.FadeText(1.0f, false, "", () =>
+                {
+                    StartGame();
+                });
+            }
+
+            return;
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            _breakableComponents.ForEach(x =>
+            {
+                x.SetState(BreakableState.BROKEN);
+            });
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -61,9 +108,11 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        BreakSomething();
+
         if (Time.time - _startTime >= _timelimit)
         {
-            Debug.Log("U WIN LOL");
+            HandleWin();
         }
 
         if (DeadComponentCount > _maxDeadBreakables)
@@ -72,7 +121,7 @@ public class GameManager : MonoBehaviour
 
             if (_deadTimePassed >= _deadTimelimit)
             {
-                Debug.Log("U R DED");
+                HandleLoss();
             }
         }
         else
@@ -81,42 +130,74 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void BreakSomething()
+    {
+
+    }
+
+    private void HandleWin()
+    {
+        Time.timeScale = 0.0f;
+        _startTime = Time.time;
+
+        _uiManager.Fade(2.0f, false, "Time to go home...", () =>
+        {
+            _currentLevel++;
+            Destroy(_panelConfiguration.gameObject);
+            GenerateStation();
+
+            _uiManager.FadeText(2.0f, false, "", () =>
+            {
+                _uiManager.FadeText(2.0f, true, "Day " + _currentLevel + "...", () =>
+                {
+                    _uiManager.Fade(2.0f, true, "Day " + _currentLevel + "...", () =>
+                    {
+                        Time.timeScale = 1.0f;
+                        _startTime = Time.time;
+                    });
+                });
+            });
+        });
+        
+    }
+
+    private void HandleLoss()
+    {
+        _dead = true;
+
+        Time.timeScale = 0.0f;
+        _startTime = Time.time;
+        _deadTimePassed = 0.0f;
+
+        _uiManager.Fade(2.0f, false, "You are dead\nPress Escape to exit\nPress Enter to restart");
+    }
+
     private void TogglePause()
     {
         _paused = !_paused;
-
-        _UI.gameObject.SetActive(_paused);
-        if (_paused)
-        {
-            Time.timeScale = 0.0f;
-            Physics.queriesHitTriggers = false;
-        }
-        else
-        {
-            Time.timeScale = 1.0f;
-            Physics.queriesHitTriggers = true;
-        }
+        _uiManager.TogglePause(_paused);
     }
 
     private void GenerateStation()
     {
+        _dead = false;
         _breakableComponents = new List<BreakableComponent>();
-        PanelConfiguration panelConfig = Instantiate(
+        _panelConfiguration = Instantiate(
             _panelConfigurations[UnityEngine.Random.Range(0, _panelConfigurations.Count)], _baseStation.transform);
 
-        panelConfig.LargePanels.ForEach(x =>
+        _panelConfiguration.LargePanels.ForEach(x =>
         {
-            CreateRandomBreakables(panelConfig, PanelSize.LARGE, x);
+            CreateRandomBreakables(_panelConfiguration, PanelSize.LARGE, x);
         });
 
-        panelConfig.MediumPanels.ForEach(x =>
+        _panelConfiguration.MediumPanels.ForEach(x =>
         {
-            CreateRandomBreakables(panelConfig, PanelSize.MEDIUM, x);
+            CreateRandomBreakables(_panelConfiguration, PanelSize.MEDIUM, x);
         });
 
-        panelConfig.SmallPanels.ForEach(x =>
+        _panelConfiguration.SmallPanels.ForEach(x =>
         {
-            CreateRandomBreakables(panelConfig, PanelSize.SMALL, x);
+            CreateRandomBreakables(_panelConfiguration, PanelSize.SMALL, x);
         });
 
         _startTime = Time.time;

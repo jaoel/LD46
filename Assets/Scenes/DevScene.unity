@@ -491,6 +491,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2133290855}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1282692340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7528466270842237125, guid: a469751b76c578c47ae7f8582b31dfb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7528466271551583209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1282692341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282692340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165406ccfa4f81e40a49aec694cb810c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvas: {fileID: 1646898332}
+  _blackScreen: {fileID: 621543547}
+  _text: {fileID: 1977896856}
 --- !u!4 &1321230090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6234210439634257962, guid: a31c8e3bc1e0b404293beda0a0187099,
@@ -569,7 +590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1646898330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,8 +1259,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1477,6 +1498,16 @@ PrefabInstance:
       propertyPath: _UI
       value: 
       objectReference: {fileID: 1646898332}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _timelimit
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _uiManager
+      value: 
+      objectReference: {fileID: 1282692341}
     - target: {fileID: 7528466270842237125, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: m_Name

@@ -44,7 +44,7 @@ public class RGBBreakableComponent : BreakableComponent
             _colorControl.SetColor(new Vector3((int)Char.GetNumericValue(errorCode[0]), 
                 (int)Char.GetNumericValue(errorCode[1]), (int)Char.GetNumericValue(errorCode[2])) * _glowStrength);
         }
-        else
+        else if (state == BreakableState.FUNCTIONAL)
         {
             _colorControl.SetColor(_defaultColor * _glowStrength);
         }

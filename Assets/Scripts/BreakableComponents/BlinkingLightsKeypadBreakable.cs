@@ -30,7 +30,7 @@ public class BlinkingLightsKeypadBreakable : BreakableComponent
         {
             GenerateCode();
         }
-        else
+        else if (state == BreakableState.FUNCTIONAL)
         {
             Reset();
         }
