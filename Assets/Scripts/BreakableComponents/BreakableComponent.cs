@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BreakableComponent : MonoBehaviour
 {
-    protected BreakableState _state;
+    private BreakableState _state;
 
     public BreakableState State => _state;
 
