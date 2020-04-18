@@ -13,6 +13,7 @@ public class SoloLightBreakable : BreakableComponent
     private void Awake()
     {
         _toggler.Toggle(true);
+        _toggler.transform.Rotate(Vector3.forward, UnityEngine.Random.Range(0.0f, 360.0f));
     }
 
     public override void SetState(BreakableState state)

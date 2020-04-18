@@ -19,6 +19,11 @@ public class BlinkingLightsKeypadBreakable : BreakableComponent
 
     private void Start()
     {
+        _lightBulbs.ForEach(x =>
+        {
+            x.transform.Rotate(Vector3.forward, UnityEngine.Random.Range(0.0f, 360.0f));
+        });
+
         Reset();
     }
 
