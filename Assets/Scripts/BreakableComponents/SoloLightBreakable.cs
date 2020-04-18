@@ -27,10 +27,6 @@ public class SoloLightBreakable : BreakableComponent
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SetState(BreakableState.BROKEN);
-        }
     }
 
     public void UpdateButtonState()

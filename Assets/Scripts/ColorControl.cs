@@ -8,7 +8,7 @@ public class ColorControl : MonoBehaviour
     private MaterialPropertyBlock mpb = null;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         mpb = new MaterialPropertyBlock();
     }
