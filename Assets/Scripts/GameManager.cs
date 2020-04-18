@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject _baseStation;
+
+    private List<BreakableComponent> _breakableComponents;
+
+    public int BrokenComponentCount => _breakableComponents.Where(x => x.State == BreakableState.BROKEN).Count();
 
     private void Awake()
     {
@@ -36,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void GenerateStation()
     {
+        _breakableComponents = new List<BreakableComponent>();
         PanelConfiguration panelConfig = Instantiate(
             _panelConfigurations[UnityEngine.Random.Range(0, _panelConfigurations.Count)], _baseStation.transform);
 
@@ -60,6 +66,8 @@ public class GameManager : MonoBehaviour
         GameObject instantiated = Instantiate(prefab, parent.transform, false);
         instantiated.transform.rotation = rotation;
         instantiated.transform.localPosition = position;
+
+        _breakableComponents.Add(instantiated.GetComponent<BreakableComponent>());
 
         return instantiated;
     }
@@ -89,7 +97,7 @@ public class GameManager : MonoBehaviour
                             Vector3 offset = new Vector3(bounds.size.x / 4.0f, 0.0f, 0.0f);
                             offset = spaces == 4 ? offset * -1.0f : offset;
                             InstantiatePanel(prefab, parentPanel.transform.parent.gameObject,
-                                parentPanel.transform.localPosition - offset, parentPanel.transform.rotation).name = spaces.ToString();
+                                parentPanel.transform.localPosition - offset, parentPanel.transform.rotation);
                             spaces -= 2;
                         }
                         else
