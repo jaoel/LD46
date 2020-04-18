@@ -20,6 +20,8 @@ public class Wire : MonoBehaviour {
     private bool _isGrabbed = false;
     private WireInput closestWireInput = null;
 
+    private static bool pickingUpAnyWire = false;
+
     private void Awake() {
         tubeRenderer = GetComponent<TubeRenderer>();
         _collider = plug.GetComponentInChildren<Collider>();
@@ -81,14 +83,16 @@ public class Wire : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (_collider.Raycast(ray, out RaycastHit hit, 100f)) {
+            if (!pickingUpAnyWire && _collider.Raycast(ray, out RaycastHit hit, 100f)) {
                 _isGrabbed = true;
+                pickingUpAnyWire = true;
                 if (connectedWireInput != null) {
                     connectedWireInput.connectedWire = null;
                     connectedWireInput = null;
                 }
             }
         } else if (Input.GetMouseButtonUp(0)) {
+            pickingUpAnyWire = false;
             _isGrabbed = false;
             if (closestWireInput != null && closestWireInput.connectedWire == null) {
                 connectedWireInput = closestWireInput;
@@ -123,6 +127,7 @@ public class Wire : MonoBehaviour {
                 plug.transform.rotation = Quaternion.RotateTowards(plug.transform.rotation, to, angle * 0.5f);
 
                 if (Vector3.Distance(transform.position, plug.transform.position) > length * 2.5f) {
+                    pickingUpAnyWire = false;
                     _isGrabbed = false;
                 }
             }
