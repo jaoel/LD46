@@ -14,7 +14,7 @@ public class RGBBreakableComponent : BreakableComponent
     [SerializeField]
     private TheToggler _toggler;
 
-    private List<string> _errorCodes = new List<string>() { "100", "010", "001" };
+    private List<string> _errorCodes = new List<string>() { "100", "010", "001", "101", "011" };
     private int _currentError = int.MaxValue;
     private string _currentCode;
 
