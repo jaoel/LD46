@@ -570,7 +570,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _smallBreakables.Array.data[0]
       value: 
-      objectReference: {fileID: 1118456205131411427, guid: 4c7911d236e503d4c96b69417b314b42,
+      objectReference: {fileID: 5416022710783223965, guid: 395167db507c3b04c90bb2995b89eeac,
         type: 3}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}

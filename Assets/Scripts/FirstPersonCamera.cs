@@ -20,7 +20,7 @@ public class FirstPersonCamera : MonoBehaviour
     private void Start()
     {
         _targetDirection = transform.localRotation.eulerAngles;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
     }
 

@@ -5,44 +5,37 @@ using UnityEngine;
 public class SoloLightBreakable : BreakableComponent
 {
     [SerializeField]
-    Light _light;
-
-    [SerializeField]
-    private Color _workingColor;
-
-    [SerializeField]
-    private Color _brokenColor;
-
-    [SerializeField]
     ButtonInteractable _button;
+
+    [SerializeField]
+    TheToggler _toggler;
 
     private void Awake()
     {
-        _light.color = _workingColor;
+        _toggler.Toggle(true);
+    }
+
+    public override void SetState(BreakableState state)
+    {
+        base.SetState(state);
+
+        if (_state == BreakableState.BROKEN)
+        {
+            _toggler.Toggle(false);
+        }
     }
 
     private void Update()
     {
-        if (_state == BreakableState.BROKEN)
-        {
-            _light.color = _brokenColor;
-        }
-        else
-        {
-            _light.color = _workingColor;
-        }
-
         if (Input.GetKeyDown(KeyCode.R))
         {
-            _state = BreakableState.BROKEN;
+            SetState(BreakableState.BROKEN);
         }
     }
 
-    public void UpdateButtonState(float interactableState)
+    public void UpdateButtonState()
     {
-        if (interactableState >= 1.0f)
-        {
-            _state = BreakableState.FUNCTIONAL;
-        }
+        _state = BreakableState.FUNCTIONAL;
+        _toggler.Toggle(true);
     }
 }
