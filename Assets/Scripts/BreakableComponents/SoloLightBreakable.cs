@@ -26,11 +26,6 @@ public class SoloLightBreakable : BreakableComponent
         if (_state == BreakableState.BROKEN)
         {
             _light.color = _brokenColor;
-
-            if (_button.State >= 1.0f)
-            {
-                _state = BreakableState.FUNCTIONAL;
-            }
         }
         else
         {
@@ -40,6 +35,14 @@ public class SoloLightBreakable : BreakableComponent
         if (Input.GetKeyDown(KeyCode.R))
         {
             _state = BreakableState.BROKEN;
+        }
+    }
+
+    public void UpdateButtonState(float interactableState)
+    {
+        if (interactableState >= 1.0f)
+        {
+            _state = BreakableState.FUNCTIONAL;
         }
     }
 }

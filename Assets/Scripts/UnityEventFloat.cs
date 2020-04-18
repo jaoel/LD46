@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine.Events;
 
 
+[Serializable]
 public class UnityEventFloat : UnityEvent<float>
 {
 }

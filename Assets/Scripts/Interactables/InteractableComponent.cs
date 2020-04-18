@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public abstract class InteractableComponent : MonoBehaviour
 {
-    //[0, 1]
     private float _state;
-    public float State => _state;
 
     [SerializeField]
-    UnityEventFloat _onStateChanged;
+    private UnityEventFloat _onStateChanged;
+    public float State => _state;
+
 
     protected void Awake()
     {
@@ -20,5 +20,6 @@ public abstract class InteractableComponent : MonoBehaviour
     protected void UpdateState(float state)
     {
         _state = Mathf.Clamp(state, 0.0f, 1.0f);
+        _onStateChanged.Invoke(_state);
     }
 }
