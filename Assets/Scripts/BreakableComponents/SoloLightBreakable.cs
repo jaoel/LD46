@@ -19,9 +19,13 @@ public class SoloLightBreakable : BreakableComponent
     {
         base.SetState(state);
 
-        if (_state == BreakableState.BROKEN)
+        if (state == BreakableState.BROKEN)
         {
             _toggler.Toggle(false);
+        }
+        else if (state == BreakableState.FUNCTIONAL)
+        {
+            _toggler.Toggle(true);
         }
     }
 
@@ -31,7 +35,6 @@ public class SoloLightBreakable : BreakableComponent
 
     public void UpdateButtonState()
     {
-        _state = BreakableState.FUNCTIONAL;
-        _toggler.Toggle(true);
+        SetState(BreakableState.FUNCTIONAL);
     }
 }

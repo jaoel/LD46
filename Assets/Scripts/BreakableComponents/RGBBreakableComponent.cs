@@ -28,10 +28,7 @@ public class RGBBreakableComponent : BreakableComponent
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SetState(BreakableState.BROKEN);
-        }
+
     }
 
     public override void SetState(BreakableState state)
@@ -64,7 +61,6 @@ public class RGBBreakableComponent : BreakableComponent
             {
                 if(_currentCode.Equals(_errorCodes[_currentError]))
                 {
-                    SetState(BreakableState.FUNCTIONAL);
                     succes = true;
                     //Play success sound
                 }
