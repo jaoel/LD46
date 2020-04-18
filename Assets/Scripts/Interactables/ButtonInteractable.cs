@@ -9,7 +9,7 @@ public enum ButtonState
     RELEASED
 }
 
-public class Button : InteractableComponent
+public class ButtonInteractable : InteractableComponent
 {
     private ButtonState _buttonState;
 
