@@ -8,8 +8,11 @@ public class TheToggler : MonoBehaviour {
 
     public bool Toggled { get; private set; } = false;
 
-    private void Start() {
+    private void Awake() {
         Toggled = toggledOnStart;
+    }
+
+    private void Start() {
         SetGameObjectsToggled(Toggled);
     }
 
