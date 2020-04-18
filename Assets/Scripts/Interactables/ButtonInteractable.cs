@@ -29,8 +29,10 @@ public class ButtonInteractable : InteractableComponent
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
         switch (_buttonState)
         {
             case ButtonState.HOVER:
@@ -47,9 +49,19 @@ public class ButtonInteractable : InteractableComponent
         if (_visTransform != null) {
             _visTransform.position = transform.position - transform.forward * Mathf.SmoothStep(0f, 1f, State) * _pushDistance;
         }
+
+        if (_mouseOver)
+        {
+            MouseOver();
+        }
+
+        if (!_mouseOver && _mouseOverPrev)
+        {
+            MouseExit();
+        }
     }
 
-    private void OnMouseOver()
+    private void MouseOver()
     {
         if (Input.GetMouseButton(0))
         {
@@ -61,7 +73,7 @@ public class ButtonInteractable : InteractableComponent
         }
     }
 
-    private void OnMouseExit()
+    private void MouseExit()
     {
         _buttonState = ButtonState.RELEASED;
     }

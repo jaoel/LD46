@@ -26,7 +26,8 @@ public class LeverInteractable : InteractableComponent {
         _targetState = state;
     }
 
-    private void Update() {
+    protected override void Update() {
+        base.Update();
         if (_moving)
         {
             _timePassed += Time.deltaTime;

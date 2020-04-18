@@ -18,9 +18,30 @@ public abstract class InteractableComponent : MonoBehaviour
 
     public float State => _state;
 
+    protected bool _mouseOver = false;
+    protected bool _mouseOverPrev = false;
+
+    int _layerMask = 0;
     protected void Awake()
     {
         _state = 0.0f;
+        _layerMask = 1 << LayerMask.NameToLayer("Default");
+    }
+
+    protected virtual void Update()
+    {
+        _mouseOverPrev = _mouseOver;
+        _mouseOver = false;
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, 100.0f, _layerMask))
+        {
+            if (GameObject.ReferenceEquals(gameObject, hit.transform.gameObject))
+            {
+                _mouseOver = true;
+            }
+        }
     }
 
     protected void UpdateState(float state)
