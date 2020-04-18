@@ -124,6 +124,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb24727ced9b79c4aad03819fb2ade0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onConnectWire:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisconnectWire:
+    m_PersistentCalls:
+      m_Calls: []
   connectedWire: {fileID: 0}
 --- !u!1 &6772098245454100324
 GameObject:
