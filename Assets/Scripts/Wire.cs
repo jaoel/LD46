@@ -49,7 +49,7 @@ public class Wire : MonoBehaviour {
             }
 
             if (i > 1) {
-                VerletPhysicsManager.AddEdgeConstraint(points[i], points[i - 2], segmentLength * 2f - 0.01f, EdgeConstraintType.MinimumDistance);
+                VerletPhysicsManager.AddEdgeConstraint(points[i], points[i - 2], segmentLength * 2f - 0.001f, EdgeConstraintType.MinimumDistance);
             }
 
         }
