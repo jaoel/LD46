@@ -54,6 +54,18 @@ public class SmallWireBreakable : BreakableComponent
             {
                 _wireInputs[i].Disconnect();
             }
+
+            for(int i = 0; i < 2; i++)
+            {
+                if (!_wireInputs[i].Connected)
+                {
+                    _LEDs[i].SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.BAD));
+                }
+                else
+                {
+                    _LEDs[i].SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.WARNING));
+                }
+            }
         }
         else if (state == BreakableState.FUNCTIONAL)
         {
