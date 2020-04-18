@@ -37,9 +37,11 @@ public class BlinkingLightsKeypadBreakable : BreakableComponent
     }
 
     // Update is called once per frame
-    private void Update()
+    protected override void Update()
     {
-        if (State == BreakableState.BROKEN)
+        base.Update();
+
+        if (State != BreakableState.FUNCTIONAL)
         {
             _timePassed += Time.deltaTime;
 
@@ -59,11 +61,6 @@ public class BlinkingLightsKeypadBreakable : BreakableComponent
                     _timePassed = 0.0f;
                 }
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SetState(BreakableState.BROKEN);
         }
     }
 

@@ -6,5 +6,5 @@ public enum BreakableState
 {
     FUNCTIONAL,
     BROKEN,
-    INACTIVE
+    DEAD
 }

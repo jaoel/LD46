@@ -12,11 +12,28 @@ public class GameManager : MonoBehaviour
     private BreakableContainer _breakableContainer;
 
     [SerializeField]
+    private int _maxDeadBreakables = 0;
+
+    [SerializeField]
+    private float _timelimit = 20.0f;
+    private float _startTime;
+
+    [SerializeField]
+    private float _deadTimelimit = 20.0f;
+    private float _deadTimePassed = 0.0f;
+
+    private bool _paused = false;
+
+    [SerializeField]
     private GameObject _baseStation;
 
-    private List<BreakableComponent> _breakableComponents;
+    [SerializeField]
+    private Canvas _UI;
+
+    private List<BreakableComponent> _breakableComponents = new List<BreakableComponent>();
 
     public int BrokenComponentCount => _breakableComponents.Where(x => x.State == BreakableState.BROKEN).Count();
+    public int DeadComponentCount => _breakableComponents.Where(x => x.State == BreakableState.DEAD).Count();
 
     private void Awake()
     {
@@ -29,15 +46,57 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            _breakableComponents[0].SetState(BreakableState.BROKEN);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+
+        if (_paused)
+        {
+            return;
+        }
+
+        if (Time.time - _startTime >= _timelimit)
+        {
+            Debug.Log("U WIN LOL");
+        }
+
+        if (DeadComponentCount > _maxDeadBreakables)
+        {
+            _deadTimePassed += Time.deltaTime;
+
+            if (_deadTimePassed >= _deadTimelimit)
+            {
+                Debug.Log("U R DED");
+            }
+        }
+        else
+        {
+            _deadTimePassed = 0.0f;
+        }
     }
 
-    //large
-    //1 large
-    //2 medium
+    private void TogglePause()
+    {
+        _paused = !_paused;
 
-    //medium
-    //2 small
+        _UI.gameObject.SetActive(_paused);
+        if (_paused)
+        {
+            Time.timeScale = 0.0f;
+            Physics.queriesHitTriggers = false;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+            Physics.queriesHitTriggers = true;
+        }
+    }
 
     private void GenerateStation()
     {
@@ -59,6 +118,8 @@ public class GameManager : MonoBehaviour
         {
             CreateRandomBreakables(panelConfig, PanelSize.SMALL, x);
         });
+
+        _startTime = Time.time;
     }
 
     private GameObject InstantiatePanel(GameObject prefab, GameObject parent, Vector3 position, Quaternion rotation)
@@ -151,8 +212,6 @@ public class GameManager : MonoBehaviour
                     InstantiatePanel(prefab, parentPanel.transform.parent.gameObject,
                         parentPanel.transform.localPosition, parentPanel.transform.rotation);
                 }
-                break;
-            default:
                 break;
         }
 

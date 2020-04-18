@@ -26,9 +26,9 @@ public class RGBBreakableComponent : BreakableComponent
         _toggler.Toggle(true);
         _colorControl.SetColor(_defaultColor * _glowStrength);
     }
-    private void Update()
+    protected override void Update()
     {
-
+        base.Update();
     }
 
     public override void SetState(BreakableState state)
