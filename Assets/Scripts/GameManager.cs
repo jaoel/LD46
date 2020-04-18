@@ -200,9 +200,9 @@ public class GameManager : MonoBehaviour
             CreateRandomBreakables(_panelConfiguration, PanelSize.SMALL, x);
         });
 
-        panelConfig.MediumLandscapePanels.ForEach(x =>
+        _panelConfiguration.MediumLandscapePanels.ForEach(x =>
         {
-            CreateRandomBreakables(panelConfig, PanelSize.MEDIUM_LANDSCAPE, x);
+            CreateRandomBreakables(_panelConfiguration, PanelSize.MEDIUM_LANDSCAPE, x);
         });
         _startTime = Time.time;
     }
