@@ -80,6 +80,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 499368363216605645}
+  - component: {fileID: 7368529958844852735}
   m_Layer: 0
   m_Name: PanelConfiguration01
   m_TagString: Untagged
@@ -103,6 +104,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7368529958844852735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499368363216605682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af6f4e6eb9c416a49a8cb8e1c3f8a393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _largePanels:
+  - {fileID: 5451977947539629976}
+  - {fileID: 5451977947490569536}
+  - {fileID: 5451977948257558152}
+  _mediumPanels:
+  - {fileID: 806278771611671385}
+  - {fileID: 806278771865510639}
+  - {fileID: 806278771279813850}
+  _smallPanels:
+  - {fileID: 2662174351202855591}
+  - {fileID: 2662174350746096796}
+  - {fileID: 2662174352206046676}
+  - {fileID: 2662174352396098781}
+  - {fileID: 2662174351763116173}
 --- !u!1001 &499368361399081915
 PrefabInstance:
   m_ObjectHideFlags: 0
