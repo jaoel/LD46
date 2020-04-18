@@ -9,8 +9,14 @@ public abstract class InteractableComponent : MonoBehaviour
 
     [SerializeField]
     private UnityEventFloat _onStateChanged;
-    public float State => _state;
 
+    [SerializeField]
+    private UnityEvent _onPress;
+
+    [SerializeField]
+    private UnityEvent _onRelease;
+
+    public float State => _state;
 
     protected void Awake()
     {
@@ -19,7 +25,17 @@ public abstract class InteractableComponent : MonoBehaviour
 
     protected void UpdateState(float state)
     {
+        float prevState = _state;
         _state = Mathf.Clamp(state, 0.0f, 1.0f);
-        _onStateChanged.Invoke(_state);
+
+        if (prevState != _state) {
+            if (_state == 1f) {
+                _onPress.Invoke();
+            } else if (_state == 0f) {
+                _onRelease.Invoke();
+            }
+
+            _onStateChanged.Invoke(_state);
+        }
     }
 }
