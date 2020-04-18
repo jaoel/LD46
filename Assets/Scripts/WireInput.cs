@@ -12,9 +12,12 @@ public class WireInput : MonoBehaviour
     public bool Connected => connectedWire != null;
     public Wire ConnectedWire => connectedWire;
 
-    public bool Connect(Wire wire) {
-        if (connectedWire == null) {
+    public bool Connect(Wire wire)
+    {
+        if (connectedWire == null)
+        {
             connectedWire = wire;
+            connectedWire.connectedWireInput = this;
             onConnectWire.Invoke(wire);
             return true;
         }
@@ -23,6 +26,7 @@ public class WireInput : MonoBehaviour
 
     public void Disconnect() {
         if (connectedWire != null) {
+            connectedWire.connectedWireInput = null;
             connectedWire = null;
             onDisconnectWire.Invoke();
         }
