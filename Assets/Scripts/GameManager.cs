@@ -189,6 +189,7 @@ public class GameManager : MonoBehaviour
 
     private void GenerateStation()
     {
+        Verlet.VerletPhysicsManager.Clear();
         _dead = false;
         _breakableComponents = new List<BreakableComponent>();
         _panelConfiguration = Instantiate(

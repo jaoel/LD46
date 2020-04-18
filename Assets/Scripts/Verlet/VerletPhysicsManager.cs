@@ -27,6 +27,13 @@ namespace Verlet {
 
         private int layerMaskWorld;
 
+        public static void Clear() {
+            Instance.points.Clear();
+            Instance.edgeConstraints.Clear();
+            Instance.anchorConstraints.Clear();
+            
+        }
+
         public static void AddPoint(Point point) {
             Instance.points.Add(point);
         }
