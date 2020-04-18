@@ -140,8 +140,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6772098245454100325}
-  - component: {fileID: 6772098245454100327}
   - component: {fileID: 6772098245454100326}
+  - component: {fileID: 9124675468482750139}
   m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
@@ -163,19 +163,6 @@ Transform:
   m_Father: {fileID: 6772098245355327851}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6772098245454100327
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6772098245454100324}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6772098245454100326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +176,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 6772098245355327850}
+--- !u!65 &9124675468482750139
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6772098245454100324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15, y: 0.15, z: 0.15}
+  m_Center: {x: 0, y: 0, z: 0}
