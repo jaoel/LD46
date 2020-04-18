@@ -2,18 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PanelSize
+{
+    LARGE,
+    MEDIUM,
+    SMALL
+}
+
 public class PanelConfiguration : MonoBehaviour
 {
     [SerializeField]
-    List<Transform> _largePanels = new List<Transform>();
+    GameObject _upperPanelContainer;
 
     [SerializeField]
-    List<Transform> _mediumPanels = new List<Transform>();
+    GameObject _lowerPanelContainer;
 
     [SerializeField]
-    List<Transform> _smallPanels = new List<Transform>();
+    List<GameObject> _largePanels = new List<GameObject>();
 
-    public List<Transform> LargePanels => _largePanels;
-    public List<Transform> MediumPanels => _mediumPanels;
-    public List<Transform> SmallPanels => _smallPanels;
+    [SerializeField]
+    List<GameObject> _mediumPanels = new List<GameObject>();
+
+    [SerializeField]
+    List<GameObject> _smallPanels = new List<GameObject>();
+
+    public List<GameObject> LargePanels => _largePanels;
+    public List<GameObject> MediumPanels => _mediumPanels;
+    public List<GameObject> SmallPanels => _smallPanels;
+
+    public GameObject UpperPanelContainer => _upperPanelContainer;
+    public GameObject LowerPanelContainer => _lowerPanelContainer;
 }

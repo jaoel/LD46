@@ -17,4 +17,17 @@ public class BreakableContainer : MonoBehaviour
     public List<GameObject> MediumBreakables => _mediumBreakables;
     public List<GameObject> SmallBreakables => _smallBreakables;
 
+    public GameObject GetRandomLargeBreakable()
+    {
+        return _largeBreakables[UnityEngine.Random.Range(0, _largeBreakables.Count)];
+    }
+    public GameObject GetRandomMediumBreakable()
+    {
+        return _mediumBreakables[UnityEngine.Random.Range(0, _mediumBreakables.Count)];
+    }
+
+    public GameObject GetRandomSmallBreakable()
+    {
+        return _smallBreakables[UnityEngine.Random.Range(0, _smallBreakables.Count)];
+    }
 }

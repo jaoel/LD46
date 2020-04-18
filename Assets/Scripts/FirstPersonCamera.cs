@@ -21,11 +21,12 @@ public class FirstPersonCamera : MonoBehaviour
     {
         _targetDirection = transform.localRotation.eulerAngles;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
 
     private void Update()
     {
-        Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y")) * _sensitivity * _smoothing;
+        Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * _sensitivity * _smoothing;
 
         _smoothedPosition.x = Mathf.Lerp(_smoothedPosition.x, mouseDelta.x, 1f / _smoothing.x);
         _smoothedPosition.y = Mathf.Lerp(_smoothedPosition.y, mouseDelta.y, 1f / _smoothing.y);
