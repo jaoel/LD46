@@ -1,19 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class InteractableComponent : MonoBehaviour
+public abstract class InteractableComponent : MonoBehaviour
 {
+    //[0, 1]
+    protected float _state;
+    public float State => _state;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    UnityEventFloat _onStateChanged;
 }
