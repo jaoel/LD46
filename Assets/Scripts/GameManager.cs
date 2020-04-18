@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -78,7 +79,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                //Go to main menu
+                SceneManager.LoadScene("MainMenuScene");
             }
 
             if (Input.GetKeyDown(KeyCode.Return) ||Input.GetKeyDown(KeyCode.KeypadEnter))
@@ -100,13 +101,18 @@ public class GameManager : MonoBehaviour
             });
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !_uiManager.Fading)
         {
             TogglePause();
         }
 
         if (_paused)
         {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SceneManager.LoadScene("MainMenuScene");
+            }
+
             return;
         }
 

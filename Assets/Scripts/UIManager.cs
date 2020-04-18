@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMPro.TMP_Text _text;
 
+    public bool Fading => _queuedCoroutines.Count > 0 || _fading;
+
     private Queue<IEnumerator> _queuedCoroutines = new Queue<IEnumerator>();
     private bool _fading = false;
 
