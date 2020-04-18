@@ -26,7 +26,8 @@ public abstract class InteractableComponent : MonoBehaviour
     protected void UpdateState(float state)
     {
         float prevState = _state;
-        _state = Mathf.Clamp(state, 0.0f, 1.0f);
+        _state = Mathf.Clamp01(state);
+        
 
         if (prevState != _state) {
             if (_state == 1f) {

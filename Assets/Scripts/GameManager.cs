@@ -62,10 +62,12 @@ public class GameManager : MonoBehaviour
                 Destroy(_panelConfiguration.gameObject);
             }
 
+            Time.timeScale = 1.0f;
             GenerateStation();
             _uiManager.Fade(2.0f, true, "Day " + _currentLevel + "...", () =>
             {
                 Physics.queriesHitTriggers = true;
+                _startTime = Time.time;
             });
         });
     }

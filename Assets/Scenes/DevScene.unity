@@ -1439,13 +1439,13 @@ PrefabInstance:
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _smallBreakables.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _largeBreakables.Array.data[0]
       value: 
-      objectReference: {fileID: 5416022710783223965, guid: 395167db507c3b04c90bb2995b89eeac,
+      objectReference: {fileID: 1062372974887903835, guid: 238eefde1b630d34d8f7027dd4600859,
         type: 3}
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
@@ -1457,7 +1457,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _smallBreakables.Array.data[1]
       value: 
-      objectReference: {fileID: 3073345492344310170, guid: 0a49bc19ea5858b4c8888eb7ef1be175,
+      objectReference: {fileID: 493988340373678338, guid: 2bcd4c24769a91c428c414f92858c888,
         type: 3}
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
