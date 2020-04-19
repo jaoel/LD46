@@ -1332,7 +1332,7 @@ PrefabInstance:
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _deadTimelimit
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237125, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
