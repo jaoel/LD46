@@ -903,6 +903,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: WireInput
       objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1968450985392738813}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1968450985392738813}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnConnectWire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDisconnectWire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6772098245355327851, guid: 4d75c5395647e6f43b0d285420d0428f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1076,6 +1146,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WireInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1968450985392738813}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnConnectWire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1968450985392738813}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDisconnectWire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6772098245355327851, guid: 4d75c5395647e6f43b0d285420d0428f,
         type: 3}
@@ -1770,6 +1900,76 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WireInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1968450985392738813}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1968450985392738813}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnConnectWire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onConnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDisconnectWire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772098245355327850, guid: 4d75c5395647e6f43b0d285420d0428f,
+        type: 3}
+      propertyPath: onDisconnectWire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6772098245355327851, guid: 4d75c5395647e6f43b0d285420d0428f,
         type: 3}
