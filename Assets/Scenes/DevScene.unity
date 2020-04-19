@@ -1219,7 +1219,7 @@ PrefabInstance:
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _mediumBreakables.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
@@ -1229,7 +1229,7 @@ PrefabInstance:
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _mediumLandscapeBreakables.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
@@ -1284,6 +1284,18 @@ PrefabInstance:
       propertyPath: _smallBreakables.Array.data[2]
       value: 
       objectReference: {fileID: 3960851569882456211, guid: 9ebeef0f00b79fe47b73b00b368a6375,
+        type: 3}
+    - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _mediumLandscapeBreakables.Array.data[2]
+      value: 
+      objectReference: {fileID: 5212833558413511822, guid: d922ad962eda86f4b8baf78a05061515,
+        type: 3}
+    - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _mediumBreakables.Array.data[2]
+      value: 
+      objectReference: {fileID: 1968450985392738754, guid: 6a84108213d11324d9ede1ba165fd4f2,
         type: 3}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
