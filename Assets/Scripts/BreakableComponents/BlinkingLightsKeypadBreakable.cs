@@ -67,11 +67,6 @@ public class BlinkingLightsKeypadBreakable : BreakableComponent
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SetState(BreakableState.BROKEN);
-        }
     }
 
     private void GenerateCode()

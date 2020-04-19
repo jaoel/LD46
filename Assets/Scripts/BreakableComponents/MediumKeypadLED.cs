@@ -63,8 +63,6 @@ public class MediumKeypadLED : BreakableComponent
                     shuffled[i].GetComponent<TheToggler>().Toggle(false);
                 }
             }
-
-            Debug.Log(_code);
         }
         else if (state == BreakableState.FUNCTIONAL)
         {
