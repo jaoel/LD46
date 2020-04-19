@@ -1164,8 +1164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b0cadf2ecdccf44a2903a3ccecb2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 256
-  height: 256
+  width: 128
+  height: 128
   renderCamera: {fileID: 4468495016944942687}
   renderObject: {fileID: 1491812681089263658}
 --- !u!1 &4246497552477214046
