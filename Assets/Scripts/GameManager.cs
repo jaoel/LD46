@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
     private bool _dead = false;
     private float _timeSinceLastBreak = 0.0f;
 
+    public int Day => _currentLevel + 1;
     public int FunctionalComponentCount => _breakableComponents.Where(x => x.State == BreakableState.FUNCTIONAL).Count();
     public int BrokenComponentCount => _breakableComponents.Where(x => x.State == BreakableState.BROKEN).Count();
     public int DeadComponentCount => _breakableComponents.Where(x => x.State == BreakableState.DEAD).Count();
