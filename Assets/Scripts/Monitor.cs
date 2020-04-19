@@ -11,6 +11,9 @@ public class Monitor : MonoBehaviour {
     public RectTransform clockMinute;
     public RectTransform clockHour;
 
+    public TMPro.TextMeshProUGUI statusText;
+    public ScrollingText scrollingText;
+
     [SerializeField] private TheToggler powerToggler = null;
     private MonitorMode mode = MonitorMode.Status;
 
