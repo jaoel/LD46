@@ -37,6 +37,9 @@ public class AudioManager : MonoBehaviour {
     }
 
     [SerializeField] private AudioMixer _audioMixer = null;
+    [SerializeField] private AudioSource _musicSource = null;
+
+    [SerializeField] private AudioClip _mainMenuTheme = null;
 
     public MixerChannelVolume MasterVolume { get; private set; } = null;
     public MixerChannelVolume MusicVolume { get; private set; } = null;
