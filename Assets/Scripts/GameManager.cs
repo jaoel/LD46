@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour
     private int _maxDeadBreakables = 0;
 
     [SerializeField]
-    private float _timelimit = 10.0f;
+    private List<float> _timeLimits = new List<float>();
+
+    private float _timelimit = float.MaxValue;
     private float _startTime;
 
     [SerializeField]
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Physics.queriesHitTriggers = true;
-        _currentLevel = 1;
+        _currentLevel = 0;
     }
     void Start()
     {
@@ -56,17 +58,17 @@ public class GameManager : MonoBehaviour
         _paused = false;
         _deadTimePassed = 0.0f;
 
-        _currentLevel = 1;
-        _uiManager.FadeText(4.0f, true, "Day " + _currentLevel + "...", () =>
+        _currentLevel = 0;
+        _uiManager.FadeText(4.0f, true, "Day " + (_currentLevel + 1) + "...", () =>
         {
             if (_panelConfiguration != null)
             {
                 Destroy(_panelConfiguration.gameObject);
             }
 
-            Time.timeScale = 1.0f;
             GenerateStation();
-            _uiManager.Fade(2.0f, true, "Day " + _currentLevel + "...", () =>
+            Time.timeScale = 1.0f;
+            _uiManager.Fade(2.0f, true, "Day " + (_currentLevel + 1) + "...", () =>
             {
                 Physics.queriesHitTriggers = true;
                 _startTime = Time.time;
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
             {
                 _uiManager.FadeText(1.0f, false, "", () =>
                 {
-                    StartGame();
+                    SceneManager.LoadScene("DevScene");
                 });
             }
 
@@ -157,11 +159,11 @@ public class GameManager : MonoBehaviour
 
             _uiManager.FadeText(2.0f, false, "", () =>
             {
-                _uiManager.FadeText(2.0f, true, "Day " + _currentLevel + "...", () =>
+                Time.timeScale = 1.0f;
+                _uiManager.FadeText(2.0f, true, "Day " + (_currentLevel + 1) + "...", () =>
                 {
-                    _uiManager.Fade(2.0f, true, "Day " + _currentLevel + "...", () =>
+                    _uiManager.Fade(2.0f, true, "Day " + (_currentLevel + 1) + "...", () =>
                     {
-                        Time.timeScale = 1.0f;
                         _startTime = Time.time;
                     });
                 });
@@ -192,8 +194,9 @@ public class GameManager : MonoBehaviour
         Verlet.VerletPhysicsManager.Clear();
         _dead = false;
         _breakableComponents = new List<BreakableComponent>();
+        _timelimit = _timeLimits[Mathf.Clamp(_currentLevel, 0, _timeLimits.Count - 1)];
         _panelConfiguration = Instantiate(
-            _panelConfigurations[UnityEngine.Random.Range(0, _panelConfigurations.Count)], _baseStation.transform);
+            _panelConfigurations[Mathf.Clamp(_currentLevel, 0, _panelConfigurations.Count - 1)], _baseStation.transform);
 
         _panelConfiguration.LargePanels.ForEach(x =>
         {

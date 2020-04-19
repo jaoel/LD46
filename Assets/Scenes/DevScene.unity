@@ -1085,6 +1085,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
+      propertyPath: _timeLimits.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
       propertyPath: _panelConfigurations.Array.data[0]
       value: 
       objectReference: {fileID: 7368529958844852735, guid: b34f21df63cf6d740b2df7354e36e00b,
@@ -1109,6 +1114,21 @@ PrefabInstance:
       propertyPath: _uiManager
       value: 
       objectReference: {fileID: 1282692341}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _timeLimits.Array.data[0]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _timeLimits.Array.data[1]
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _timeLimits.Array.data[2]
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237125, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: m_Name
