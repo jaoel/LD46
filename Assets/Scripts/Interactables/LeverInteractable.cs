@@ -15,32 +15,33 @@ public class LeverInteractable : InteractableComponent {
     private Vector3 _grabbedMousePos = Vector3.zero;
 
     private bool _moving = false;
-    private float _timePassed = 0.0f;
-    private float _time = 0.0f;
-    private float _targetState = 0.0f;
+    private float _moveStartTime = 0.0f;
+    private float _moveDuration = 0.0f;
+    private float _moveStartState = 0.0f;
+    private float _moveTargetState = 0.0f;
     public void MoveTo(float time, float state)
     {
         _moving = true;
-        _timePassed = 0.0f;
-        _time = time;
-        _targetState = state;
+        _moveStartTime = Time.time;
+        _moveDuration = time;
+        _moveTargetState = state;
+        _moveStartState = State;
     }
 
     protected override void Update() {
         base.Update();
         if (_moving)
         {
-            _timePassed += Time.deltaTime;
-
-            if (_timePassed <= _time && !Mathf.Approximately(State, _targetState))
+            float moveT = Mathf.Clamp01((Time.time - _moveStartTime) / _moveDuration);
+            if (moveT < 1f)
             {
-                UpdateState(Mathf.SmoothStep(State, _targetState, _timePassed / _time));
+                UpdateState(Mathf.SmoothStep(_moveStartState, _moveTargetState, moveT));
             }
             else
             {
                 _moving = false;
-                _timePassed = 0.0f;
-                UpdateState(_targetState);
+                _moveStartTime = 0.0f;
+                UpdateState(_moveTargetState);
             }
         }
         else
