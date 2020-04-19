@@ -1306,6 +1306,9 @@ MonoBehaviour:
       m_Calls: []
   _onPress:
     m_PersistentCalls:
+      m_Calls: []
+  _onRelease:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7368998725669263018}
         m_MethodName: TogglePower
@@ -1318,11 +1321,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onRelease:
-    m_PersistentCalls:
-      m_Calls: []
   _pressAudioClip: {fileID: 8300000, guid: 8f877b5a2f19ca8479bbfa9fc280d8be, type: 3}
   _releaseAudioClip: {fileID: 8300000, guid: 42c712009dad7f9449382eb5d5867a91, type: 3}
+  _upAudioClip: {fileID: 0}
   _pushSpeed: 10
   _visTransform: {fileID: 4453138008917027071}
   _pushDistance: 0.007

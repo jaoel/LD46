@@ -22,7 +22,7 @@ public class WireInput : MonoBehaviour
     }
 
     private void PlayAudioCLip(AudioClip clip) {
-        if (audioSource != null && clip != null && Time.time > soundLastPlayedTime + 0.1f) {
+        if (audioSource != null && clip != null && Time.time > soundLastPlayedTime + 0.1f && Time.time > 0.5f) {
             soundLastPlayedTime = Time.time;
             audioSource.PlayOneShot(clip);
         }
