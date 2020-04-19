@@ -335,6 +335,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseStation
       objectReference: {fileID: 0}
+    - target: {fileID: 7426413344072328542, guid: 9743e6cd6b7e88744b8e9f3d42e4de6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9743e6cd6b7e88744b8e9f3d42e4de6c, type: 3}
 --- !u!1001 &606977883
@@ -799,14 +804,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893690906}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46117ad357ba58e4ea03e54ccbcf9067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: {x: 1, y: 1}
   _smoothing: {x: 2, y: 2}
-  _viewDirectionClamp: {x: 360, y: 180}
+  _viewDirectionClamp: {x: 90, y: 60}
 --- !u!81 &893690909
 AudioListener:
   m_ObjectHideFlags: 0
@@ -846,7 +851,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1847
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

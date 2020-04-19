@@ -81,7 +81,7 @@ public class Monitor : MonoBehaviour {
                 }
             }
 
-            if (gameManager.Dying) {
+            if (gameManager?.Dying == true) {
                 SetMode(MonitorMode.Error);
             }
         } else if (mode == MonitorMode.Error) {

@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                Time.timeScale = 1.0f;
                 SceneManager.LoadScene("MainMenuScene");
             }
 
@@ -112,6 +113,7 @@ public class GameManager : MonoBehaviour
             {
                 _uiManager.FadeText(1.0f, false, "", () =>
                 {
+                    Time.timeScale = 1.0f;
                     SceneManager.LoadScene("DevScene");
                 });
             }
@@ -136,6 +138,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                Time.timeScale = 1.0f;
                 SceneManager.LoadScene("MainMenuScene");
             }
 
