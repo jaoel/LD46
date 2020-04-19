@@ -26,26 +26,29 @@ public class FirstPersonCamera : MonoBehaviour
 
     private void Update()
     {
-        Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * _sensitivity * _smoothing;
-
-        _smoothedPosition.x = Mathf.Lerp(_smoothedPosition.x, mouseDelta.x, 1f / _smoothing.x);
-        _smoothedPosition.y = Mathf.Lerp(_smoothedPosition.y, mouseDelta.y, 1f / _smoothing.y);
-        _position += _smoothedPosition;
-
-        if (_viewDirectionClamp.x < 360)
+        if (Input.GetMouseButton(1))
         {
-            _position.x = Mathf.Clamp(_position.x, -_viewDirectionClamp.x * 0.5f, _viewDirectionClamp.x * 0.5f);
+            Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * _sensitivity * _smoothing;
+
+            _smoothedPosition.x = Mathf.Lerp(_smoothedPosition.x, mouseDelta.x, 1f / _smoothing.x);
+            _smoothedPosition.y = Mathf.Lerp(_smoothedPosition.y, mouseDelta.y, 1f / _smoothing.y);
+            _position += _smoothedPosition;
+
+            if (_viewDirectionClamp.x < 360)
+            {
+                _position.x = Mathf.Clamp(_position.x, -_viewDirectionClamp.x * 0.5f, _viewDirectionClamp.x * 0.5f);
+            }
+
+            if (_viewDirectionClamp.y < 360)
+            {
+                _position.y = Mathf.Clamp(_position.y, -_viewDirectionClamp.y * 0.5f, _viewDirectionClamp.y * 0.5f);
+            }
+
+            Quaternion targetOrientation = Quaternion.Euler(_targetDirection);
+            transform.localRotation = Quaternion.AngleAxis(-_position.y, Vector3.right) * targetOrientation;
+
+            Quaternion yRotation = Quaternion.AngleAxis(_position.x, transform.InverseTransformDirection(Vector3.up));
+            transform.localRotation *= yRotation;
         }
-
-        if (_viewDirectionClamp.y < 360)
-        {
-            _position.y = Mathf.Clamp(_position.y, -_viewDirectionClamp.y * 0.5f, _viewDirectionClamp.y * 0.5f);
-        }
-
-        Quaternion targetOrientation = Quaternion.Euler(_targetDirection);
-        transform.localRotation = Quaternion.AngleAxis(-_position.y, Vector3.right) * targetOrientation;
-
-        Quaternion yRotation = Quaternion.AngleAxis(_position.x, transform.InverseTransformDirection(Vector3.up));
-        transform.localRotation *= yRotation;
     }
 }

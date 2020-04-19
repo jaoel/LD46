@@ -1157,14 +1157,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914087452}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46117ad357ba58e4ea03e54ccbcf9067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: {x: 1, y: 1}
   _smoothing: {x: 2, y: 2}
-  _viewDirectionClamp: {x: 360, y: 180}
+  _viewDirectionClamp: {x: 90, y: 60}
 --- !u!114 &1914087457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,17 +1492,17 @@ PrefabInstance:
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _timeLimits.Array.data[0]
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _timeLimits.Array.data[1]
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _timeLimits.Array.data[2]
-      value: 10
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
@@ -1524,7 +1524,7 @@ PrefabInstance:
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _deadTimelimit
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
