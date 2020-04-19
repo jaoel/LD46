@@ -18,7 +18,7 @@ namespace Verlet {
             }
         }
 
-        private int iterations = 10;
+        private int iterations = 5;
         public int Iterations { get { return iterations; } set { iterations = Mathf.Clamp(value, 1, 100); } }
 
         [System.NonSerialized] public List<Point> points = new List<Point>();

@@ -2,7 +2,7 @@
 using Verlet;
 
 public class Wire : MonoBehaviour {
-    private static float segmentLength = 0.01f;
+    private static float segmentLength = 0.02f;
     public float length = 0.2f;
 
     public WireInput connectedWireInput = null;
