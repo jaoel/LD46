@@ -130,10 +130,11 @@ public class BlinkingLightsKeypadBreakable : BreakableComponent
             if (succes)
             {
                 SetState(BreakableState.FUNCTIONAL);
+                _numpad.PlayConfirm();
             }
             else
             {
-
+                _numpad.PlayDeny();
             }
         }
     }

@@ -14,16 +14,14 @@ public class RGBBreakableComponent : BreakableComponent
     [SerializeField]
     private TheToggler _toggler;
 
-    private List<string> _errorCodes = new List<string>() { "100", "010", "001", "101", "011" };
+    private List<string> _errorCodes = new List<string>() { "100", "001", "101", "011", "110", "111" };
     private int _currentError = int.MaxValue;
     private string _currentCode;
-
-    private Vector3 _defaultColor = new Vector3(1.0f, 1.0f, 1.0f);
 
     private void Start()
     {
         _toggler.Toggle(true);
-        _colorControl.SetColor(ColorPalette.GetLEDEmissiveColor(_defaultColor));
+        _colorControl.SetColor(ColorPalette.OK);
     }
     protected override void Update()
     {
@@ -46,7 +44,7 @@ public class RGBBreakableComponent : BreakableComponent
         }
         else if (state == BreakableState.FUNCTIONAL)
         {
-            _colorControl.SetColor(ColorPalette.GetLEDEmissiveColor(_defaultColor));
+            _colorControl.SetColor(ColorPalette.OK);
         }
 
     }
@@ -62,17 +60,17 @@ public class RGBBreakableComponent : BreakableComponent
                 if(_currentCode.Equals(_errorCodes[_currentError]))
                 {
                     succes = true;
-                    //Play success sound
                 }
             }
 
             if (succes)
             {
                 SetState(BreakableState.FUNCTIONAL);
+                _numpad.PlayConfirm();
             }
             else
             {
-
+                _numpad.PlayDeny();
             }
 
             _currentCode = "";

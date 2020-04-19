@@ -477,6 +477,16 @@ PrefabInstance:
       propertyPath: _onButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5132975248430180930, guid: 910aa58d8e0a20641af068e926163248,
+        type: 3}
+      propertyPath: _codeConfirmed
+      value: 
+      objectReference: {fileID: 1649736787625335774}
+    - target: {fileID: 5132975248430180930, guid: 910aa58d8e0a20641af068e926163248,
+        type: 3}
+      propertyPath: _codeDenied
+      value: 
+      objectReference: {fileID: 7406643088251507599}
     - target: {fileID: 5132975248430180931, guid: 910aa58d8e0a20641af068e926163248,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -552,6 +562,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cebae9b58372d644ba7353b71bc9884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1649736787625335774 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1188084832385251828, guid: 910aa58d8e0a20641af068e926163248,
+    type: 3}
+  m_PrefabInstance: {fileID: 475664132500578858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7406643088251507599 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6940126910815023525, guid: 910aa58d8e0a20641af068e926163248,
+    type: 3}
+  m_PrefabInstance: {fileID: 475664132500578858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &475664132700059674
 PrefabInstance:
   m_ObjectHideFlags: 0

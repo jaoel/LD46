@@ -62,6 +62,7 @@ MonoBehaviour:
   - {fileID: 125381784885142442}
   - {fileID: 125381784836039158}
   - {fileID: 125381784393780176}
+  _numpad: {fileID: 2516902541072543398}
 --- !u!82 &8810037016350308927
 AudioSource:
   m_ObjectHideFlags: 0
@@ -721,6 +722,16 @@ PrefabInstance:
       propertyPath: _onButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5132975248430180930, guid: 910aa58d8e0a20641af068e926163248,
+        type: 3}
+      propertyPath: _codeConfirmed
+      value: 
+      objectReference: {fileID: 8478805372981722384}
+    - target: {fileID: 5132975248430180930, guid: 910aa58d8e0a20641af068e926163248,
+        type: 3}
+      propertyPath: _codeDenied
+      value: 
+      objectReference: {fileID: 398112183699354945}
     - target: {fileID: 5132975248430180931, guid: 910aa58d8e0a20641af068e926163248,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -781,6 +792,30 @@ PrefabInstance:
 --- !u!4 &2516902541072543399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5132975248430180931, guid: 910aa58d8e0a20641af068e926163248,
+    type: 3}
+  m_PrefabInstance: {fileID: 7338096951162143972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2516902541072543398 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5132975248430180930, guid: 910aa58d8e0a20641af068e926163248,
+    type: 3}
+  m_PrefabInstance: {fileID: 7338096951162143972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cebae9b58372d644ba7353b71bc9884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &8478805372981722384 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1188084832385251828, guid: 910aa58d8e0a20641af068e926163248,
+    type: 3}
+  m_PrefabInstance: {fileID: 7338096951162143972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &398112183699354945 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6940126910815023525, guid: 910aa58d8e0a20641af068e926163248,
     type: 3}
   m_PrefabInstance: {fileID: 7338096951162143972}
   m_PrefabAsset: {fileID: 0}

@@ -8,6 +8,9 @@ public class LargeBitpatternBreakable : BreakableComponent
     [SerializeField]
     private List<ColorControl> _LEDs = new List<ColorControl>();
 
+    [SerializeField]
+    private Numpad _numpad = null;
+
     private string _code;
     private string _currentInput;
 
@@ -82,10 +85,11 @@ public class LargeBitpatternBreakable : BreakableComponent
                 if (succes)
                 {
                     SetState(BreakableState.FUNCTIONAL);
+                    _numpad.PlayConfirm();
                 }
                 else
                 {
-
+                    _numpad.PlayDeny();
                 }
 
                 _currentInput = "";
