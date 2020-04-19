@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour
     {
         if (_dead)
         {
+            _siren.volume = Mathf.Clamp(_siren.volume - 0.5f * Time.unscaledDeltaTime, 0.25f, 1.0f);
+
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 SceneManager.LoadScene("MainMenuScene");
@@ -139,13 +141,8 @@ public class GameManager : MonoBehaviour
 
         if (DeadComponentCount > _maxDeadBreakables)
         {
+            _siren.volume = Mathf.Clamp(_siren.volume + 1.0f * Time.deltaTime, 0.0f, 1.0f);
             _deadTimePassed += Time.deltaTime;
-
-            if (!_siren.isPlaying)
-            {
-                _siren.Play();
-            }
-
             if (_deadTimePassed >= _deadTimelimit)
             {
                 HandleLoss();
@@ -153,8 +150,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            _siren.volume = Mathf.Clamp(_siren.volume - 1.0f * Time.deltaTime, 0.0f, 1.0f);
             _deadTimePassed = 0.0f;
-            _siren.Stop();
         }
     }
 
@@ -206,7 +203,6 @@ public class GameManager : MonoBehaviour
                 });
             });
         });
-        
     }
 
     private void HandleLoss()

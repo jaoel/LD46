@@ -436,8 +436,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -4112057479165208252, guid: 836c69376ee58f64e9721c1490cc73f7,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: ecfb4323cf768d94ea86b1fcf353229f, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1300,7 +1300,7 @@ PrefabInstance:
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _timeLimits.Array.data[0]
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
@@ -1329,6 +1329,11 @@ PrefabInstance:
       propertyPath: _siren
       value: 
       objectReference: {fileID: 1282692342}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _deadTimelimit
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237125, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: m_Name
