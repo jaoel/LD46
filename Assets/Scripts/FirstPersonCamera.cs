@@ -20,7 +20,7 @@ public class FirstPersonCamera : MonoBehaviour
     private void Start()
     {
         _targetDirection = transform.localRotation.eulerAngles;
-        //Cursor.lockState = CursorLockMode.Locked;
+        //
         Cursor.visible = true;
     }
 
@@ -28,6 +28,8 @@ public class FirstPersonCamera : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
+            Cursor.visible = false;
+
             Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * _sensitivity * _smoothing;
 
             _smoothedPosition.x = Mathf.Lerp(_smoothedPosition.x, mouseDelta.x, 1f / _smoothing.x);
@@ -49,6 +51,10 @@ public class FirstPersonCamera : MonoBehaviour
 
             Quaternion yRotation = Quaternion.AngleAxis(_position.x, transform.InverseTransformDirection(Vector3.up));
             transform.localRotation *= yRotation;
+        }
+        else
+        {
+            Cursor.visible = true;
         }
     }
 }
