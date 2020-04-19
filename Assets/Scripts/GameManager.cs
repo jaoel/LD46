@@ -356,14 +356,14 @@ public class GameManager : MonoBehaviour
                     while(spaces > 0)
                     {
                         int random = UnityEngine.Random.Range(0, 10);
-                        if( random <= 5 && spaces == 4)
+                        if( random <= 8 && spaces == 4)
                         {
                             prefab = _breakableContainer.GetRandomLargeBreakable();
                             InstantiatePanel(prefab, parentPanel.transform.parent.gameObject,
                                 parentPanel.transform.localPosition, parentPanel.transform.rotation);
                             spaces -= 4;
                         }
-                        else if (random > 5 && random < 8 && spaces % 2 == 0)
+                        else if (random > 6 && random < 9 && spaces % 2 == 0)
                         {
                             prefab = _breakableContainer.GetRandomMediumBreakable();
                             Vector3 offset = new Vector3(bounds.size.x / 4.0f, 0.0f, 0.0f);
@@ -395,7 +395,7 @@ public class GameManager : MonoBehaviour
                     while(spaces > 0)
                     {
                         int random = UnityEngine.Random.Range(0, 10);
-                        if (random >= 5 && spaces == 2)
+                        if (random >= 3 && spaces == 2)
                         {
                             prefab = _breakableContainer.GetRandomMediumBreakable();
                             InstantiatePanel(prefab, parentPanel.transform.parent.gameObject, 
