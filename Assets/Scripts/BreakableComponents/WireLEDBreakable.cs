@@ -47,8 +47,6 @@ public class WireLEDBreakable : BreakableComponent {
             }
         }
 
-        Debug.Log(allCorrect + " " + State);
-
         if (allCorrect && State != BreakableState.FUNCTIONAL) {
             SetState(BreakableState.FUNCTIONAL);
         } else if (!allCorrect && State == BreakableState.FUNCTIONAL) {

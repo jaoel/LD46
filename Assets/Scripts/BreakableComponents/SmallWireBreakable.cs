@@ -79,11 +79,6 @@ public class SmallWireBreakable : BreakableComponent
     protected override void Update()
     {
         base.Update();
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SetState(BreakableState.BROKEN);
-        }
     }
 
     public void UpdateButtonState()
