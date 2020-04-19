@@ -1368,6 +1368,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _pressedAudio: {fileID: 5132975248430180933}
+  _codeConfirmed: {fileID: 1188084832385251828}
+  _codeDenied: {fileID: 6940126910815023525}
 --- !u!82 &5132975248430180933
 AudioSource:
   m_ObjectHideFlags: 0
