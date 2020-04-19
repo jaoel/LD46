@@ -12,7 +12,12 @@ public class WireLEDBreakable : BreakableComponent {
     private int numConnected = 0;
 
     private void Start() {
-        SetState(BreakableState.BROKEN);
+        Randomize();
+        wirePairs.ForEach(x =>
+        {
+            x.input.Connect(x.wire);
+        });
+        SetState(BreakableState.FUNCTIONAL);
     }
 
     public override void SetState(BreakableState state) {

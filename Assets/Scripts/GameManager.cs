@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("MainMenuScene");
             }
 
-            if (Input.GetKeyDown(KeyCode.Return) ||Input.GetKeyDown(KeyCode.KeypadEnter))
+            if (Input.GetKeyDown(KeyCode.Return) ||Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
                 _uiManager.FadeText(1.0f, false, "", () =>
                 {
@@ -148,14 +148,6 @@ public class GameManager : MonoBehaviour
             }
 
             return;
-        }
-
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            _breakableComponents.ForEach(x =>
-            {
-                x.SetState(BreakableState.BROKEN);
-            });
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !_uiManager.Fading)
@@ -287,7 +279,7 @@ public class GameManager : MonoBehaviour
         _startTime = Time.time;
         _deadStartTime = 0.0f;
 
-        _uiManager.Fade(2.0f, false, "You are dead\nPress Escape to exit\nPress Enter to restart");
+        _uiManager.Fade(2.0f, false, "You are dead\nPress Escape to exit\nPress Enter or Mouse to restart");
     }
 
     private void TogglePause()
