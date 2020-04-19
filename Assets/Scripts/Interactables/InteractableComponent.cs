@@ -17,13 +17,13 @@ public abstract class InteractableComponent : MonoBehaviour
     private UnityEvent _onRelease;
 
     [SerializeField]
-    private AudioClip _pressAudioClip;
+    protected AudioClip _pressAudioClip;
 
     [SerializeField]
-    private AudioClip _releaseAudioClip;
+    protected AudioClip _releaseAudioClip;
 
     [SerializeField]
-    private AudioClip _upAudioClip;
+    protected AudioClip _upAudioClip;
 
     private AudioSource _audioSource;
     private static float _soundLastPlayedTime = -10f;
@@ -57,8 +57,8 @@ public abstract class InteractableComponent : MonoBehaviour
         }
     }
 
-    private void PlayAudioCLip(AudioClip clip) {
-        if (_audioSource != null && clip != null && Time.time > _soundLastPlayedTime + 0.1f && Time.time > 0.5f) {
+    protected void PlayAudioCLip(AudioClip clip, float time = 0.1f) {
+        if (_audioSource != null && clip != null && Time.time > _soundLastPlayedTime + time && Time.time > 0.5f) {
             _soundLastPlayedTime = Time.time;
             _audioSource.PlayOneShot(clip);
         }
