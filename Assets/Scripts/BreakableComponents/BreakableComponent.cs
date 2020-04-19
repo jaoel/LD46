@@ -26,7 +26,7 @@ public class BreakableComponent : MonoBehaviour
     public virtual void SetState(BreakableState state)
     {
         if (_state != state && state == BreakableState.BROKEN) {
-            GameManager.Instance.InstantiateSparks(transform.position, transform.rotation);
+            GameManager.Instance?.InstantiateSparks(transform.position, transform.rotation);
             _sparksTimeNext = Time.time + Random.Range(4f, 7f);
         }
         _state = state;
@@ -61,7 +61,7 @@ public class BreakableComponent : MonoBehaviour
 
             if (Time.time > _sparksTimeNext) {
                 _sparksTimeNext = Time.time + Random.Range(4f, 7f);
-                GameManager.Instance.InstantiateSparks(transform.position, transform.rotation);
+                GameManager.Instance?.InstantiateSparks(transform.position, transform.rotation);
                 _breakSound.clip = _breakClips[UnityEngine.Random.Range(0, _breakClips.Count)];
                 _breakSound.Play();
             }
