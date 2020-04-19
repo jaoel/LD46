@@ -141,6 +141,7 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return) ||Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
+                AudioManager.Instance.PlayMusic("CalmGameplay");
                 _uiManager.FadeText(1.0f, false, "", () =>
                 {
                     Time.timeScale = 1.0f;
@@ -190,7 +191,7 @@ public class GameManager : MonoBehaviour
         {
             if (_deadStartTime > 0.0f)
             {
-                AudioManager.Instance.PlayMusic("CalmGameplay");
+                AudioManager.Instance.PlayMusic("CalmGameplay", true, 1.0f);
             }
 
             _siren.volume = Mathf.Clamp(_siren.volume - 1.0f * Time.deltaTime, 0.0f, 1.0f);
@@ -274,6 +275,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleLoss()
     {
+        AudioManager.Instance.PlayMusic("GameOver", true, 5.0f);
         _dead = true;
 
         if (UnityEngine.Random.Range(0, 100) < 10)

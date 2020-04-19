@@ -19,6 +19,8 @@ public class SmallTickerBreakable : BreakableComponent
 
     protected override void Update()
     {
+        base.Update();
+
         if (State == BreakableState.FUNCTIONAL)
         {
             _gauge.SetState(_gauge.State + 0.05f * Time.deltaTime);

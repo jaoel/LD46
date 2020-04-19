@@ -44,6 +44,7 @@ public class AudioManager : MonoBehaviour {
     [SerializeField] private AudioClip _mainMenuTheme = null;
     [SerializeField] private AudioClip _calmGameplay = null;
     [SerializeField] private AudioClip _angryGameplay = null;
+    [SerializeField] private AudioClip _gameOver = null;
 
 
     public MixerChannelVolume MasterVolume { get; private set; } = null;
@@ -79,7 +80,7 @@ public class AudioManager : MonoBehaviour {
                 {
                     while (_fadingMusic)
                     {
-                        yield return new WaitForSeconds(0.01f);
+                        yield return new WaitForSecondsRealtime(0.01f);
                     }
 
                     yield return StartCoroutine(_queuedCoroutines.Dequeue());
@@ -106,7 +107,7 @@ public class AudioManager : MonoBehaviour {
         }
         else if (key == "GameOver")
         {
-
+            _queuedCoroutines.Enqueue(PlayMusicFade(_musicSource, _gameOver, loop, fadeTime));
         }
         else if (key == "Win")
         {
@@ -124,14 +125,14 @@ public class AudioManager : MonoBehaviour {
         {
             fadeOut = FadeOut(source, fadeHalfTime);
             StartCoroutine(fadeOut);
-            yield return new WaitForSeconds(fadeHalfTime);
+            yield return new WaitForSecondsRealtime(fadeHalfTime);
         }
 
         if (fadeOut != null)
         {
             while (fadeOut.MoveNext())
             {
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSecondsRealtime(0.01f);
             }
         }
 
@@ -151,8 +152,8 @@ public class AudioManager : MonoBehaviour {
         float timePassed = 0.0f;
         while (audioSource.volume > 0 || timePassed <= fadeTime)
         {
-            audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
-            timePassed += Time.deltaTime;
+            audioSource.volume -= startVolume * Time.unscaledDeltaTime / fadeTime;
+            timePassed += Time.unscaledDeltaTime;
             yield return null;
         }
         audioSource.Stop();
@@ -169,8 +170,8 @@ public class AudioManager : MonoBehaviour {
         float timePassed = 0.0f;
         while (audioSource.volume < MusicVolume.Volume || timePassed <= fadeTime)
         {
-            audioSource.volume += startVolume * Time.deltaTime / fadeTime;
-            timePassed += Time.deltaTime;
+            audioSource.volume += startVolume * Time.unscaledDeltaTime / fadeTime;
+            timePassed += Time.unscaledDeltaTime;
             yield return null;
         }
 

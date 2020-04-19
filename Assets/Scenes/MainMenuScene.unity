@@ -2264,6 +2264,11 @@ PrefabInstance:
       propertyPath: _angryGameplay
       value: 
       objectReference: {fileID: 8300000, guid: cb958f33f4f02c244ad93749d838a8b9, type: 3}
+    - target: {fileID: 6205484135569296731, guid: 86f1c6f4dd8fd10469ecce44ad9b3ad4,
+        type: 3}
+      propertyPath: _gameOver
+      value: 
+      objectReference: {fileID: 8300000, guid: fdf39b06b13f88248ae425e08197d8cd, type: 3}
     - target: {fileID: 6205484135569296732, guid: 86f1c6f4dd8fd10469ecce44ad9b3ad4,
         type: 3}
       propertyPath: m_Name
