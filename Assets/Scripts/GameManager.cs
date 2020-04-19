@@ -51,14 +51,17 @@ public class GameManager : MonoBehaviour
 
     private int _currentLevel;
     private bool _paused = false;
-    private float _deadTimePassed = 0.0f;
+    private float _deadStartTime = 0.0f;
     private bool _dead = false;
     private float _timeSinceLastBreak = 0.0f;
 
+    public int FunctionalComponentCount => _breakableComponents.Where(x => x.State == BreakableState.FUNCTIONAL).Count();
     public int BrokenComponentCount => _breakableComponents.Where(x => x.State == BreakableState.BROKEN).Count();
     public int DeadComponentCount => _breakableComponents.Where(x => x.State == BreakableState.DEAD).Count();
-    public bool Dying => _deadTimePassed > 0.0f;
+    public bool Dying => _deadStartTime > 0.0f;
+    public bool Dead => _dead;
     public float DayCompleteAmount => Mathf.Clamp01((Time.time - _startTime) / _timelimit);
+    public float DeadTimer => Mathf.Max(0f, _deadTimelimit - (Time.time - _deadStartTime));
 
     private void Awake()
     {
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
     {
         _dead = false;
         _paused = false;
-        _deadTimePassed = 0.0f;
+        _deadStartTime = 0.0f;
 
         _currentLevel = 0;
         _uiManager.FadeText(4.0f, true, GetLevelText(), () =>
@@ -148,9 +151,11 @@ public class GameManager : MonoBehaviour
 
         if (DeadComponentCount > _maxDeadBreakables)
         {
+            if (_deadStartTime == 0f) {
+                _deadStartTime = Time.time;
+            }
             _siren.volume = Mathf.Clamp(_siren.volume + 1.0f * Time.deltaTime, 0.0f, 1.0f);
-            _deadTimePassed += Time.deltaTime;
-            if (_deadTimePassed >= _deadTimelimit)
+            if (Time.time > _deadStartTime + _deadTimelimit)
             {
                 HandleLoss();
             }
@@ -158,7 +163,7 @@ public class GameManager : MonoBehaviour
         else
         {
             _siren.volume = Mathf.Clamp(_siren.volume - 1.0f * Time.deltaTime, 0.0f, 1.0f);
-            _deadTimePassed = 0.0f;
+            _deadStartTime = 0.0f;
         }
     }
 
@@ -248,7 +253,7 @@ public class GameManager : MonoBehaviour
         _explosions.Play();
         Time.timeScale = 0.0f;
         _startTime = Time.time;
-        _deadTimePassed = 0.0f;
+        _deadStartTime = 0.0f;
 
         _uiManager.Fade(2.0f, false, "You are dead\nPress Escape to exit\nPress Enter to restart");
     }
