@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float _maxBreakInterval = 10.0f;
 
+    [SerializeField]
+    private AudioSource _siren;
+
     private List<BreakableComponent> _breakableComponents = new List<BreakableComponent>();
     private PanelConfiguration _panelConfiguration;
 
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public int BrokenComponentCount => _breakableComponents.Where(x => x.State == BreakableState.BROKEN).Count();
     public int DeadComponentCount => _breakableComponents.Where(x => x.State == BreakableState.DEAD).Count();
+    public bool Dying => _deadTimePassed > 0.0f;
     public float DayCompleteAmount => Mathf.Clamp01((Time.time - _startTime) / _timelimit);
 
     private void Awake()
@@ -137,6 +141,11 @@ public class GameManager : MonoBehaviour
         {
             _deadTimePassed += Time.deltaTime;
 
+            if (!_siren.isPlaying)
+            {
+                _siren.Play();
+            }
+
             if (_deadTimePassed >= _deadTimelimit)
             {
                 HandleLoss();
@@ -145,6 +154,7 @@ public class GameManager : MonoBehaviour
         else
         {
             _deadTimePassed = 0.0f;
+            _siren.Stop();
         }
     }
 
