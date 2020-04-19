@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<float> _timeLimits = new List<float>();
 
+    [SerializeField]
+    private int _maxLevels = 6;
+
     private float _timelimit = float.MaxValue;
     private float _startTime;
 
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
         _deadTimePassed = 0.0f;
 
         _currentLevel = 0;
-        _uiManager.FadeText(4.0f, true, "Day " + (_currentLevel + 1) + "...", () =>
+        _uiManager.FadeText(4.0f, true, GetLevelText(), () =>
         {
             if (_panelConfiguration != null)
             {
@@ -83,7 +86,7 @@ public class GameManager : MonoBehaviour
 
             GenerateStation();
             Time.timeScale = 1.0f;
-            _uiManager.Fade(2.0f, true, "Day " + (_currentLevel + 1) + "...", () =>
+            _uiManager.Fade(2.0f, true, GetLevelText(), () =>
             {
                 Physics.queriesHitTriggers = true;
                 _startTime = Time.time;
@@ -189,24 +192,48 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         _startTime = Time.time;
 
-        _uiManager.Fade(2.0f, false, "Time to go home...", () =>
-        {
-            _currentLevel++;
-            Destroy(_panelConfiguration.gameObject);
-            GenerateStation();
+        _currentLevel++;
 
-            _uiManager.FadeText(2.0f, false, "", () =>
+        if (_currentLevel > _maxLevels)
+        {
+            _uiManager.Fade(2.0f, false, "You have completed our game, yay\nPress Enter to return to Main Menu", () =>
             {
-                Time.timeScale = 1.0f;
-                _uiManager.FadeText(2.0f, true, "Day " + (_currentLevel + 1) + "...", () =>
+                Destroy(_panelConfiguration.gameObject);
+                _paused = true;
+            });
+        }
+        else
+        {
+            _uiManager.Fade(2.0f, false, "Time to go home...", () =>
+            {
+                Destroy(_panelConfiguration.gameObject);
+                GenerateStation();
+
+                _uiManager.FadeText(2.0f, false, "", () =>
                 {
-                    _uiManager.Fade(2.0f, true, "Day " + (_currentLevel + 1) + "...", () =>
+                    Time.timeScale = 1.0f;
+                    _uiManager.FadeText(2.0f, true, GetLevelText(), () =>
                     {
-                        _startTime = Time.time;
+                        _uiManager.Fade(2.0f, true, GetLevelText(), () =>
+                        {
+                            _startTime = Time.time;
+                        });
                     });
                 });
             });
-        });
+        }
+    }
+
+    private string GetLevelText()
+    {
+        if (_maxLevels != int.MaxValue)
+        {
+            return "Day " + (_currentLevel + 1) + " of " + (_maxLevels + 1) + "...";
+        }
+        else
+        {
+            return "Day " + (_currentLevel + 1) + "...";
+        }
     }
 
     private void HandleLoss()
