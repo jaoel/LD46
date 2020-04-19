@@ -60,8 +60,7 @@ public abstract class InteractableComponent : MonoBehaviour
     private void PlayAudioCLip(AudioClip clip) {
         if (_audioSource != null && clip != null && Time.time > _soundLastPlayedTime + 0.1f) {
             _soundLastPlayedTime = Time.time;
-            _audioSource.clip = clip;
-            _audioSource.Play();
+            _audioSource.PlayOneShot(clip);
         }
     }
 
