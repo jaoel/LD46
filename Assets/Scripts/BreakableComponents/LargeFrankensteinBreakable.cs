@@ -20,7 +20,7 @@ public class LargeFrankensteinBreakable : BreakableComponent
 
         _levers.ForEach(x =>
         {
-            x.MoveTo(0.01f, 1.0f);
+            x.MoveTo(0f, 1.0f);
         });
     }
 
@@ -44,7 +44,7 @@ public class LargeFrankensteinBreakable : BreakableComponent
                     if (UnityEngine.Random.Range(0.0f, 1.0f) <= 0.6f)
                     {
                         broken = true;
-                        _levers[i].MoveTo(2.0f, 0.0f);
+                        _levers[i].MoveTo(0.5f, 0.0f);
                         _lightbulbs[i].Toggle(false);
                     }
                 }
