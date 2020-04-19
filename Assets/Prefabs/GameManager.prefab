@@ -44,8 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f62fa4ab95ac37419451d6660b6d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sparkEffectPrefab: {fileID: 5346285890209375605, guid: 00109fde4c8f24049af599a260c34811,
+    type: 3}
   _panelConfigurations: []
   _breakableContainer: {fileID: 909035722555433291}
+  _maxDeadBreakables: 0
+  _timeLimits: []
+  _maxLevels: 6
+  _deadTimelimit: 20
+  _baseStation: {fileID: 0}
+  _uiManager: {fileID: 0}
+  _minBreakInterval: 5
+  _maxBreakInterval: 10
+  _siren: {fileID: 0}
+  _scream: {fileID: 0}
+  _explosions: {fileID: 0}
 --- !u!114 &909035722555433291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,3 +75,4 @@ MonoBehaviour:
   _mediumBreakables: []
   _smallBreakables:
   - {fileID: 4377691470399225137, guid: 395167db507c3b04c90bb2995b89eeac, type: 3}
+  _mediumLandscapeBreakables: []

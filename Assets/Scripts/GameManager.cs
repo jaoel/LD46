@@ -6,6 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager _instance = null;
+    public static GameManager Instance {
+        get {
+            if (_instance == null) {
+                _instance = FindObjectOfType<GameManager>();
+            }
+            return _instance;
+        }
+    }
+
+
+    public GameObject sparkEffectPrefab;
+
     [SerializeField]
     private List<PanelConfiguration> _panelConfigurations = new List<PanelConfiguration>();
 
@@ -67,10 +80,26 @@ public class GameManager : MonoBehaviour
     {
         Physics.queriesHitTriggers = true;
         _currentLevel = 0;
+
+        if (_instance == null) {
+            _instance = this;
+        }
     }
+
+    private void OnDestroy() {
+        if(_instance == this) {
+            _instance = null;
+        }
+    }
+
     void Start()
     {
         StartGame();
+    }
+
+    public void InstantiateSparks(Vector3 position, Quaternion rotation) {
+        GameObject instance = Instantiate(sparkEffectPrefab, position, rotation);
+        Destroy(instance, 3f);
     }
 
     private void StartGame()
