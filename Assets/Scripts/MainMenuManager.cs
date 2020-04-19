@@ -19,10 +19,13 @@ public class MainMenuManager : MonoBehaviour
         _masterKnob.MoveTo(0f, AudioManager.Instance.MasterVolume.Volume);
         _sfxKnob.MoveTo(0f, AudioManager.Instance.MusicVolume.Volume);
         _musicKnob.MoveTo(0f, AudioManager.Instance.SfxVolume.Volume);
+
+        AudioManager.Instance.PlayMusic("MainMenu", true, 0.2f);
     }
 
     public void OnStartPressed()
     {
+        AudioManager.Instance.PlayMusic("CalmGameplay", true, 3.0f);
         _uiManager.Fade(2.0f, false, "", () =>
         {
             SceneManager.LoadScene("DevScene");

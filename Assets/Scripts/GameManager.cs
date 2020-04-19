@@ -178,6 +178,7 @@ public class GameManager : MonoBehaviour
         {
             if (_deadStartTime == 0f) {
                 _deadStartTime = Time.time;
+                AudioManager.Instance.PlayMusic("AlertGameplay");
             }
             _siren.volume = Mathf.Clamp(_siren.volume + 1.0f * Time.deltaTime, 0.0f, 1.0f);
             if (Time.time > _deadStartTime + _deadTimelimit)
@@ -187,6 +188,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            if (_deadStartTime > 0.0f)
+            {
+                AudioManager.Instance.PlayMusic("CalmGameplay");
+            }
+
             _siren.volume = Mathf.Clamp(_siren.volume - 1.0f * Time.deltaTime, 0.0f, 1.0f);
             _deadStartTime = 0.0f;
         }

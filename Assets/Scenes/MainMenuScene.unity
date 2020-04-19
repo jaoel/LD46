@@ -2244,6 +2244,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6205484135569296731, guid: 86f1c6f4dd8fd10469ecce44ad9b3ad4,
+        type: 3}
+      propertyPath: _calmGameplay.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205484135569296731, guid: 86f1c6f4dd8fd10469ecce44ad9b3ad4,
+        type: 3}
+      propertyPath: _calmGameplay.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1871700dbe269f6468d2bd40056d4308, type: 3}
+    - target: {fileID: 6205484135569296731, guid: 86f1c6f4dd8fd10469ecce44ad9b3ad4,
+        type: 3}
+      propertyPath: _calmGameplay
+      value: 
+      objectReference: {fileID: 8300000, guid: 1871700dbe269f6468d2bd40056d4308, type: 3}
+    - target: {fileID: 6205484135569296731, guid: 86f1c6f4dd8fd10469ecce44ad9b3ad4,
+        type: 3}
+      propertyPath: _angryGameplay
+      value: 
+      objectReference: {fileID: 8300000, guid: cb958f33f4f02c244ad93749d838a8b9, type: 3}
     - target: {fileID: 6205484135569296732, guid: 86f1c6f4dd8fd10469ecce44ad9b3ad4,
         type: 3}
       propertyPath: m_Name
