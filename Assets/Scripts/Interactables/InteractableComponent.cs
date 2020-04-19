@@ -16,6 +16,18 @@ public abstract class InteractableComponent : MonoBehaviour
     [SerializeField]
     private UnityEvent _onRelease;
 
+    [SerializeField]
+    private AudioClip _pressAudioClip;
+
+    [SerializeField]
+    private AudioClip _releaseAudioClip;
+
+    [SerializeField]
+    private AudioClip _upAudioClip;
+
+    private AudioSource _audioSource;
+    private static float _soundLastPlayedTime = -10f;
+
     public float State => _state;
 
     protected bool _mouseOver = false;
@@ -26,6 +38,7 @@ public abstract class InteractableComponent : MonoBehaviour
     {
         _state = 0.0f;
         _layerMask = 1 << LayerMask.NameToLayer("Default");
+        _audioSource = GetComponent<AudioSource>();
     }
 
     protected virtual void Update()
@@ -44,6 +57,14 @@ public abstract class InteractableComponent : MonoBehaviour
         }
     }
 
+    private void PlayAudioCLip(AudioClip clip) {
+        if (_audioSource != null && clip != null && Time.time > _soundLastPlayedTime + 0.1f) {
+            _soundLastPlayedTime = Time.time;
+            _audioSource.clip = clip;
+            _audioSource.Play();
+        }
+    }
+
     protected void UpdateState(float state)
     {
         float prevState = _state;
@@ -53,8 +74,13 @@ public abstract class InteractableComponent : MonoBehaviour
         if (prevState != _state) {
             if (_state == 1f) {
                 _onPress.Invoke();
+                PlayAudioCLip(_pressAudioClip);
+            } else if (prevState == 1f && _state != 1f) {
+                _onRelease.Invoke();
+                PlayAudioCLip(_releaseAudioClip);
             } else if (_state == 0f) {
                 _onRelease.Invoke();
+                PlayAudioCLip(_upAudioClip);
             }
 
             _onStateChanged.Invoke(_state);
