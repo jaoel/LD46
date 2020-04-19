@@ -43,7 +43,6 @@ public class Monitor : MonoBehaviour {
             t = gameManager.DayCompleteAmount;
         } else {
             t = Mathf.Repeat(Time.time * 0.1f, 1f);
-            Debug.Log(t);
         }
 
         float hour = t * 30f * 8f;
