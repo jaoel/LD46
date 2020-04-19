@@ -20,9 +20,10 @@ public class LargeWireBreakable : BreakableComponent
             x.Toggle(true);
         });
 
+        List<Wire> randomWireOrder = _wires.Shuffle();
         for(int i = 0; i < _inputs.Count; i++)
         {
-            _inputs[i].Connect(_wires[i]);
+            _inputs[i].Connect(randomWireOrder[i]);
         }
     }
 
