@@ -30,6 +30,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private UIManager _uiManager;
 
+    [SerializeField]
+    private float _minBreakInterval = 5.0f;
+
+    [SerializeField]
+    private float _maxBreakInterval = 10.0f;
+
     private List<BreakableComponent> _breakableComponents = new List<BreakableComponent>();
     private PanelConfiguration _panelConfiguration;
 
@@ -37,6 +43,7 @@ public class GameManager : MonoBehaviour
     private bool _paused = false;
     private float _deadTimePassed = 0.0f;
     private bool _dead = false;
+    private float _timeSinceLastBreak = 0.0f;
 
     public int BrokenComponentCount => _breakableComponents.Where(x => x.State == BreakableState.BROKEN).Count();
     public int DeadComponentCount => _breakableComponents.Where(x => x.State == BreakableState.DEAD).Count();
@@ -143,7 +150,27 @@ public class GameManager : MonoBehaviour
 
     private void BreakSomething()
     {
+        _timeSinceLastBreak += Time.deltaTime;
 
+        if (_timeSinceLastBreak < _minBreakInterval)
+        {
+            return;
+        }
+        else
+        {
+            if (_timeSinceLastBreak >= _maxBreakInterval || UnityEngine.Random.Range(0.0f, 1.0f) <= _timeSinceLastBreak / _maxBreakInterval)
+            {
+                _timeSinceLastBreak = 0.0f;
+
+                List<BreakableComponent> functionalBreakables = _breakableComponents
+                    .Where(x => x.State == BreakableState.FUNCTIONAL).ToList();
+
+                if (functionalBreakables.Count > 0)
+                {
+                    functionalBreakables[Random.Range(0, functionalBreakables.Count)].SetState(BreakableState.BROKEN);
+                }
+            }
+        }
     }
 
     private void HandleWin()
