@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private AudioSource _siren;
+    [SerializeField]
+    private AudioSource _scream;
+    [SerializeField]
+    private AudioSource _explosions;
 
     private List<BreakableComponent> _breakableComponents = new List<BreakableComponent>();
     private PanelConfiguration _panelConfiguration;
@@ -209,6 +213,12 @@ public class GameManager : MonoBehaviour
     {
         _dead = true;
 
+        if (UnityEngine.Random.Range(0, 100) < 10)
+        {
+            _scream.Play();
+        }
+
+        _explosions.Play();
         Time.timeScale = 0.0f;
         _startTime = Time.time;
         _deadTimePassed = 0.0f;
