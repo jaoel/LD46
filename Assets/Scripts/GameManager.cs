@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioSource _explosions;
 
+    [SerializeField]
+    private FirstPersonCamera _camera;
+
     private List<BreakableComponent> _breakableComponents = new List<BreakableComponent>();
     private PanelConfiguration _panelConfiguration;
 
@@ -180,6 +183,7 @@ public class GameManager : MonoBehaviour
             if (_deadStartTime == 0f) {
                 _deadStartTime = Time.time;
                 AudioManager.Instance.PlayMusic("AlertGameplay");
+                _camera.Shake(0.1f, 0.05f);
             }
             _siren.volume = Mathf.Clamp(_siren.volume + 1.0f * Time.deltaTime, 0.0f, 1.0f);
             if (Time.time > _deadStartTime + _deadTimelimit)
@@ -275,6 +279,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleLoss()
     {
+        _camera.Shake(1.5f, 0.05f);
         AudioManager.Instance.PlayMusic("GameOver", true, 5.0f);
         _dead = true;
 

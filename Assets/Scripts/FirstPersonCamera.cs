@@ -16,12 +16,18 @@ public class FirstPersonCamera : MonoBehaviour
     private Vector2 _targetDirection;
     private Vector2 _position;
     private Vector2 _smoothedPosition;
+    private Vector3 _initialLocalPos;
+    private float _shakeDuration = 0.0f;
+
+    private float _shakeStrength = 0.7f;
+    private float _damping = 1.0f;
 
     private void Start()
     {
         _targetDirection = transform.localRotation.eulerAngles;
         //
         Cursor.visible = true;
+        _initialLocalPos = transform.localPosition;
     }
 
     private void Update()
@@ -56,5 +62,23 @@ public class FirstPersonCamera : MonoBehaviour
         {
             Cursor.visible = true;
         }
+
+        if (_shakeDuration > 0)
+        {
+            transform.localPosition = _initialLocalPos + Random.insideUnitSphere * _shakeStrength;
+
+            _shakeDuration -= Time.deltaTime * _damping;
+        }
+        else
+        {
+            _shakeDuration = 0f;
+            transform.localPosition = _initialLocalPos;
+        }
+    }
+
+    public void Shake(float duration, float strength = 0.2f)
+    {
+        _shakeDuration = duration;
+        _shakeStrength = strength;
     }
 }
