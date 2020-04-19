@@ -29,11 +29,6 @@ public class LargeWireBreakable : BreakableComponent
     // Update is called once per frame
     protected override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SetState(BreakableState.BROKEN);
-        }
-
         if (State != BreakableState.FUNCTIONAL)
         {
             bool allConnected = true;
@@ -82,6 +77,14 @@ public class LargeWireBreakable : BreakableComponent
         else if (state == BreakableState.FUNCTIONAL)
         {
 
+        }
+    }
+
+    public void Disconnect()
+    {
+        if (State == BreakableState.FUNCTIONAL)
+        {
+            SetState(BreakableState.BROKEN);
         }
     }
 }

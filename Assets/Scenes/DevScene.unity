@@ -1394,7 +1394,7 @@ PrefabInstance:
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _largeBreakables.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
@@ -1439,7 +1439,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _largeBreakables.Array.data[1]
       value: 
-      objectReference: {fileID: 7338096950406683554, guid: 20ee62385e1646a4fb0e436b487b1b07,
+      objectReference: {fileID: 3748014431072547602, guid: 638561998bb863e47990a6dd3150c03d,
         type: 3}
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
