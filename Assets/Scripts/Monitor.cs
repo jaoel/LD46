@@ -27,6 +27,21 @@ public class Monitor : MonoBehaviour {
     private int prevFunctionalCount = 0;
     private int prevBrokenCount = 0;
 
+    private int updatedDay = -1;
+
+    private string[] messages = new string[] {
+        "WASH YOUR HANDS!",
+        "TODAY IS OPPOSITE DAY!",
+        "DID YOU KNOW THAT THE TOMATO IS REALLY A FRUIT?",
+        "HAPPY LUDUM DARE 46!",
+        "HELLO THERE.",
+        "GENERAL KENOBI!",
+        "WHY DID THE CHICKEN CROSS THE ROAD?",
+        "I HOPE YOU HAVE A GREAT DAY :3",
+        "THANKS FOR PLAYING!",
+        "YOU'RE DOING GREAT!",
+    };
+
     public void TogglePower() {
         powerToggler.Toggle(!powerToggler.Toggled);
     }
@@ -79,10 +94,20 @@ public class Monitor : MonoBehaviour {
                         "OK: " + functionalCount + "\n" +
                         "ERROR: " + brokenCount + "\n";
                 }
-            }
 
-            if (gameManager?.Dying == true) {
-                SetMode(MonitorMode.Error);
+                if (gameManager.Dying == true) {
+                    SetMode(MonitorMode.Error);
+                }
+
+                if (gameManager.Day != updatedDay) {
+                    updatedDay = gameManager.Day;
+                    Debug.Log("UPDATED!");
+                    if (gameManager.Day == 1) {
+                        scrollingText.SetText("LOOK AROUND BY HOLDING DOWN YOUR RIGHT MOUSE BUTTON.");
+                    } else {
+                        scrollingText.SetText(messages[Random.Range(0, messages.Length)]);
+                    }
+                }
             }
         } else if (mode == MonitorMode.Error) {
             countdownText.text = gameManager.DeadTimer.ToString("0.00");

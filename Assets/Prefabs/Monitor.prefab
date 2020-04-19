@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textTransform: {fileID: 2610766559398823678}
   text: {fileID: 2822996099278594040}
-  speed: 1
+  speed: 0.5
   space: 1
 --- !u!1 &2899104044166907077
 GameObject:
