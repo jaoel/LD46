@@ -5,6 +5,15 @@ using UnityEngine;
 public class BreakableComponent : MonoBehaviour
 {
     [SerializeField]
+    private AudioSource _breakSound;
+
+    [SerializeField]
+    private AudioSource _deadSound;
+
+    [SerializeField]
+    private List<AudioClip> _breakClips;
+
+    [SerializeField]
     private float _lifetime = 15.0f;
     private float _timeBroken = 0.0f;
 
@@ -19,6 +28,17 @@ public class BreakableComponent : MonoBehaviour
         if (_state == BreakableState.BROKEN)
         {
             _timeBroken = 0.0f;
+
+            if (_breakSound != null)
+            {
+                _breakSound.clip = _breakClips[UnityEngine.Random.Range(0, _breakClips.Count)];
+                _breakSound.Play();
+            }
+        }
+
+        if (_state == BreakableState.DEAD)
+        {
+            _deadSound?.Play();
         }
     }
 
