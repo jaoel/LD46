@@ -7,13 +7,13 @@ public class AudioManager : MonoBehaviour {
         private string _parameterName;
         private AudioMixer _audioMixer;
 
-        public float Volume { get; private set; } = 0f;
+        public float Volume { get; private set; } = 1f;
 
         public MixerChannelVolume(string parameterName, AudioMixer audioMixer) {
             _parameterName = parameterName;
             _audioMixer = audioMixer;
 
-            Volume = PlayerPrefs.GetFloat("MixerChannelVolume" + _parameterName, 0f);
+            Volume = PlayerPrefs.GetFloat("MixerChannelVolume" + _parameterName, 1f);
             SetVolume(Volume);
         }
 
