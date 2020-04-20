@@ -1697,7 +1697,7 @@ PrefabInstance:
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _storyText.Array.data[2]
-      value: Well that wasn't so bad...
+      value: Well last day wasn't so bad...
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
@@ -1717,7 +1717,7 @@ PrefabInstance:
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _storyText.Array.data[3]
-      value: That was way too stressful...
+      value: Yesterday way too stressful...
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
