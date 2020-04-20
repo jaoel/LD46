@@ -9,7 +9,7 @@ public class ScrollingText : MonoBehaviour {
 
     private void Update() {
         float textWidth = text.renderedWidth;
-        textTransform.anchoredPosition = textTransform.anchoredPosition - Vector2.right * speed * Time.deltaTime;
+        textTransform.anchoredPosition = textTransform.anchoredPosition - Vector2.right * speed * Time.unscaledDeltaTime;
         if (textTransform.anchoredPosition.x < -textWidth) {
             textTransform.anchoredPosition = new Vector2(space, textTransform.anchoredPosition.y);
         }

@@ -5,11 +5,13 @@ using UnityEngine;
 public class Monitor : MonoBehaviour {
     public enum MonitorMode {
         Status,
-        Error
+        Error,
+        Hired,
     }
 
     public GameObject statusObject;
     public GameObject ErrorObject;
+    public GameObject HiredObject;
 
     public RectTransform clockMinute;
     public RectTransform clockHour;
@@ -52,9 +54,12 @@ public class Monitor : MonoBehaviour {
                     break;
                 case MonitorMode.Error:
                     break;
+                case MonitorMode.Hired:
+                    break;
             }
             statusObject.SetActive(newMode == MonitorMode.Status);
             ErrorObject.SetActive(newMode == MonitorMode.Error);
+            HiredObject.SetActive(newMode == MonitorMode.Hired);
             mode = newMode;
         }
     }
@@ -112,6 +117,10 @@ public class Monitor : MonoBehaviour {
             if (!gameManager.Dying && !gameManager.Dead) {
                 SetMode(MonitorMode.Status);
             }
+        }
+
+        if (gameManager != null && gameManager.WonTheGame) {
+            SetMode(MonitorMode.Hired);
         }
 
     }

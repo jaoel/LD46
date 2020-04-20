@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
     public bool Dead => _dead;
     public float DayCompleteAmount => Mathf.Clamp01((Time.time - _startTime) / _timelimit);
     public float DeadTimer => Mathf.Max(0f, _deadTimelimit - (Time.time - _deadStartTime));
+    public bool WonTheGame { get; private set; } = false;
 
     private void Awake()
     {
@@ -117,6 +118,7 @@ public class GameManager : MonoBehaviour
         _dead = false;
         _paused = false;
         _deadStartTime = 0.0f;
+        WonTheGame = false;
 
         _currentLevel = 0;
         _uiManager.FadeText(4.0f, true, GetLevelText(), () =>
@@ -231,6 +233,7 @@ public class GameManager : MonoBehaviour
 
         if (_currentLevel > _maxLevels)
         {
+            WonTheGame = true;
             _paused = true;
             AudioManager.Instance.PlayMusic("Win", true, 2.0f);
             GameObject go = Instantiate(_confettiPrefab);
