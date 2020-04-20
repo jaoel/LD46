@@ -140,6 +140,11 @@ public class GameManager : MonoBehaviour
             _siren.volume = Mathf.Clamp(_siren.volume - 0.5f * Time.unscaledDeltaTime, 0.25f, 1.0f);
             return;
         }
+        
+        if (_paused)
+        {
+            return;
+        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -223,10 +228,15 @@ public class GameManager : MonoBehaviour
 
         if (_currentLevel > _maxLevels)
         {
-            _uiManager.Fade(2.0f, false, "You have completed our game, yay\nPress Enter to return to Main Menu", () =>
+            _paused = true;
+
+            _uiManager.Fade(10.0f, true, " ", () =>
             {
-                Destroy(_panelConfiguration.gameObject);
-                _paused = true;
+                _uiManager.Fade(2.0f, false, "You have completed our game, yay\nPress Enter to return to Main Menu", () =>
+                {
+                    //Destroy(_panelConfiguration.gameObject);
+                    //_paused = true;
+                });
             });
         }
         else
