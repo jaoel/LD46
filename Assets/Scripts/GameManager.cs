@@ -388,7 +388,7 @@ public class GameManager : MonoBehaviour
                     int spaces = 4;
                     while(spaces > 0)
                     {
-                        int random = UnityEngine.Random.Range(0, 10);
+                        int random = _currentLevel == 1 ? 8 : UnityEngine.Random.Range(0, 10);
                         if( random <= 8 && spaces == 4)
                         {
                             prefab = _breakableContainer.GetRandomLargeBreakable();
@@ -427,7 +427,7 @@ public class GameManager : MonoBehaviour
                     int spaces = 2;
                     while(spaces > 0)
                     {
-                        int random = UnityEngine.Random.Range(0, 10);
+                        int random = _currentLevel == 2 ? 8 : UnityEngine.Random.Range(0, 10);
                         if (random >= 3 && spaces == 2)
                         {
                             prefab = _breakableContainer.GetRandomMediumBreakable();
