@@ -13,7 +13,7 @@ public class SmallTickerBreakable : BreakableComponent
     private void Start()
     {
         _LED.GetComponent<TheToggler>().Toggle(true);
-        _LED.SetColor(ColorPalette.OK);
+        _LED.SetEmissiveColor(ColorPalette.OK);
         _gauge.SetState(0.0f);
     }
 
@@ -31,7 +31,7 @@ public class SmallTickerBreakable : BreakableComponent
             }
             else if (_gauge.State >= 0.6f)
             {
-                _LED.SetColor(ColorPalette.WARNING);
+                _LED.SetEmissiveColor(ColorPalette.WARNING);
             }
         }
     }
@@ -47,12 +47,12 @@ public class SmallTickerBreakable : BreakableComponent
                 _gauge.SetState(1.0f);
             }
 
-            _LED.SetColor(ColorPalette.BAD);
+            _LED.SetEmissiveColor(ColorPalette.BAD);
         }
         else if (state == BreakableState.FUNCTIONAL)
         {
             _gauge.SetState(0.0f);
-            _LED.SetColor(ColorPalette.OK);
+            _LED.SetEmissiveColor(ColorPalette.OK);
         }
     }
 

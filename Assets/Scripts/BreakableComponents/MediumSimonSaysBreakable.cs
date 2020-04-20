@@ -18,7 +18,7 @@ public class MediumSimonSaysBreakable : BreakableComponent
         _LEDs.ForEach(x =>
         {
             x.GetComponent<TheToggler>().Toggle(true);
-            x.SetColor(ColorPalette.OK);
+            x.SetEmissiveColor(ColorPalette.OK);
         });
     }
 
@@ -60,7 +60,7 @@ public class MediumSimonSaysBreakable : BreakableComponent
                 {
                     _LEDs[i].GetComponent<TheToggler>().Toggle(false);
                 }
-                _LEDs[i].SetColor(ColorPalette.BAD);
+                _LEDs[i].SetEmissiveColor(ColorPalette.BAD);
             }
         }
         else if (state == BreakableState.FUNCTIONAL)
@@ -68,7 +68,7 @@ public class MediumSimonSaysBreakable : BreakableComponent
             _LEDs.ForEach(x =>
             {
                 x.GetComponent<TheToggler>().Toggle(true);
-                x.SetColor(ColorPalette.OK);
+                x.SetEmissiveColor(ColorPalette.OK);
             });
 
             _sequence = string.Empty;

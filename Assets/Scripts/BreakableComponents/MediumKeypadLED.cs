@@ -21,7 +21,7 @@ public class MediumKeypadLED : BreakableComponent
         _LEDs.ForEach(x =>
         {
             x.GetComponent<TheToggler>().Toggle(true);
-            x.SetColor(ColorPalette.OK);
+            x.SetEmissiveColor(ColorPalette.OK);
         });
     }
 
@@ -56,7 +56,7 @@ public class MediumKeypadLED : BreakableComponent
                 if (i < (int)Char.GetNumericValue(_code[_currentIndex]))
                 {
                     shuffled[i].GetComponent<TheToggler>().Toggle(true);
-                    shuffled[i].SetColor(ColorPalette.BAD);
+                    shuffled[i].SetEmissiveColor(ColorPalette.BAD);
                 }
                 else
                 {
@@ -72,7 +72,7 @@ public class MediumKeypadLED : BreakableComponent
             _LEDs.ForEach(x =>
             {
                 x.GetComponent<TheToggler>().Toggle(true);
-                x.SetColor(ColorPalette.OK);
+                x.SetEmissiveColor(ColorPalette.OK);
             });
         }
     }
@@ -100,7 +100,7 @@ public class MediumKeypadLED : BreakableComponent
                         if (i < (int)Char.GetNumericValue(_code[_currentIndex]))
                         {
                             shuffled[i].GetComponent<TheToggler>().Toggle(true);
-                            shuffled[i].SetColor(ColorPalette.BAD);
+                            shuffled[i].SetEmissiveColor(ColorPalette.BAD);
                         }
                         else
                         {

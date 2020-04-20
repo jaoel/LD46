@@ -17,7 +17,7 @@ public class LargeKnobBreakable : BreakableComponent
         _LEDs.ForEach(x =>
         {
             x.GetComponent<TheToggler>().Toggle(true);
-            x.SetColor(ColorPalette.OK);
+            x.SetEmissiveColor(ColorPalette.OK);
         });
 
         _knobs.ForEach(x =>
@@ -38,18 +38,18 @@ public class LargeKnobBreakable : BreakableComponent
                 float diff = Mathf.Abs(_knobs[i].State - _targets[i]);
                 if (diff <= 0.1f)
                 {
-                    _LEDs[i].SetColor(ColorPalette.OK);
+                    _LEDs[i].SetEmissiveColor(ColorPalette.OK);
                 }
                 else
                 {
                     allCorrect = false;
                     if (diff <= 0.2f)
                     {
-                        _LEDs[i].SetColor(ColorPalette.WARNING);
+                        _LEDs[i].SetEmissiveColor(ColorPalette.WARNING);
                     }
                     else
                     {
-                        _LEDs[i].SetColor(ColorPalette.BAD);
+                        _LEDs[i].SetEmissiveColor(ColorPalette.BAD);
                     }
                 }
             }
@@ -78,7 +78,7 @@ public class LargeKnobBreakable : BreakableComponent
                 }
 
                 _targets.Add((newVal));
-                _LEDs[i].SetColor(ColorPalette.BAD);
+                _LEDs[i].SetEmissiveColor(ColorPalette.BAD);
             }
         }
     }

@@ -21,7 +21,7 @@ public class RGBBreakableComponent : BreakableComponent
     private void Start()
     {
         _toggler.Toggle(true);
-        _colorControl.SetColor(ColorPalette.OK);
+        _colorControl.SetEmissiveColor(ColorPalette.OK);
     }
     protected override void Update()
     {
@@ -40,11 +40,11 @@ public class RGBBreakableComponent : BreakableComponent
             string errorCode = _errorCodes[_currentError];
             Vector3 color = new Vector3((int)Char.GetNumericValue(errorCode[0]),
                 (int)Char.GetNumericValue(errorCode[1]), (int)Char.GetNumericValue(errorCode[2]));
-            _colorControl.SetColor(ColorPalette.GetLEDEmissiveColor(color));
+            _colorControl.SetEmissiveColor(color);
         }
         else if (state == BreakableState.FUNCTIONAL)
         {
-            _colorControl.SetColor(ColorPalette.OK);
+            _colorControl.SetEmissiveColor(ColorPalette.OK);
         }
 
     }

@@ -13,7 +13,17 @@ public class ColorControl : MonoBehaviour
         mpb = new MaterialPropertyBlock();
     }
 
-    public void SetColor(Vector3 color) {
+    public void SetEmissiveColor(Color color) {
+        SetEmissiveColor(new Vector3(color.r, color.g, color.b));
+    }
+
+    public void SetEmissiveColor(Vector3 color) {
+        _renderer.GetPropertyBlock(mpb);
+        mpb.SetVector("_EmissionColor", ColorPalette.GetLEDEmissiveColor(color));
+        _renderer.SetPropertyBlock(mpb);
+    }
+
+    public void SetAlbedoColor(Vector3 color) {
         _renderer.GetPropertyBlock(mpb);
         mpb.SetVector("_EmissionColor", color);
         _renderer.SetPropertyBlock(mpb);

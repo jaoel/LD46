@@ -19,7 +19,7 @@ public class LargeBitpatternBreakable : BreakableComponent
         _LEDs.ForEach(x =>
         {
             x.GetComponent<TheToggler>().Toggle(true);
-            x.SetColor(ColorPalette.OK);
+            x.SetEmissiveColor(ColorPalette.OK);
         });
 
         _code = string.Empty;
@@ -39,7 +39,7 @@ public class LargeBitpatternBreakable : BreakableComponent
             {
                 if ((int)Char.GetNumericValue(bitpattern[i]) == 1)
                 {
-                    _LEDs[i].SetColor(ColorPalette.BAD);
+                    _LEDs[i].SetEmissiveColor(ColorPalette.BAD);
                 }
                 else
                 {
@@ -52,7 +52,7 @@ public class LargeBitpatternBreakable : BreakableComponent
             _LEDs.ForEach(x =>
             {
                 x.GetComponent<TheToggler>().Toggle(true);
-                x.SetColor(ColorPalette.OK);
+                x.SetEmissiveColor(ColorPalette.OK);
             });
 
             _code = string.Empty;

@@ -18,7 +18,7 @@ public class SmallWireBreakable : BreakableComponent
         _LEDs.ForEach(x =>
         {
             x.GetComponent<TheToggler>().Toggle(true);
-            x.SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.OK));
+            x.SetEmissiveColor(ColorPalette.OK);
         });
 
         for(int i = 0; i < _wireInputs.Count; i++)
@@ -59,11 +59,11 @@ public class SmallWireBreakable : BreakableComponent
             {
                 if (!_wireInputs[i].Connected)
                 {
-                    _LEDs[i].SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.BAD));
+                    _LEDs[i].SetEmissiveColor(ColorPalette.BAD);
                 }
                 else
                 {
-                    _LEDs[i].SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.WARNING));
+                    _LEDs[i].SetEmissiveColor(ColorPalette.WARNING);
                 }
             }
         }
@@ -71,7 +71,7 @@ public class SmallWireBreakable : BreakableComponent
         {
             for(int i = 0; i < 2; i++)
             {
-                _LEDs[i].SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.OK));
+                _LEDs[i].SetEmissiveColor(ColorPalette.OK);
             }
         }
     }
@@ -116,7 +116,7 @@ public class SmallWireBreakable : BreakableComponent
             {
                 if (_wireInputs[i].Connected)
                 {
-                    _LEDs[i].SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.WARNING));
+                    _LEDs[i].SetEmissiveColor(ColorPalette.WARNING);
                 }
             }
         }
@@ -134,11 +134,11 @@ public class SmallWireBreakable : BreakableComponent
             {
                 if (!_wireInputs[i].Connected)
                 {
-                    _LEDs[i].SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.BAD));
+                    _LEDs[i].SetEmissiveColor(ColorPalette.BAD);
                 }
                 else
                 {
-                    _LEDs[i].SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.WARNING));
+                    _LEDs[i].SetEmissiveColor(ColorPalette.WARNING);
                 }
             }
         }

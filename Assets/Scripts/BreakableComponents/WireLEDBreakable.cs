@@ -71,10 +71,10 @@ public class WireLEDBreakable : BreakableComponent {
 
     private void SetFunctional() {
         foreach (ColorControl colorControl in wireLEDs) {
-            colorControl.SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.OK));
+            colorControl.SetEmissiveColor(ColorPalette.OK);
         }
         foreach (ColorControl colorControl in inputLEDs) {
-            colorControl.SetColor(ColorPalette.GetLEDEmissiveColor(ColorPalette.OK));
+            colorControl.SetEmissiveColor(ColorPalette.OK);
         }
     }
 
@@ -91,9 +91,9 @@ public class WireLEDBreakable : BreakableComponent {
         wirePairs = new List<(Wire wire, WireInput input)>();
         for(int i = 0; i < wireIndices.Count; i++) {
             wirePairs.Add((wires[wireIndices[i]], wireInputs[inputIndices[i]]));
-            wireLEDs[wireIndices[i]].SetColor(ColorPalette.GetLEDEmissiveColor(colors[i]));
+            wireLEDs[wireIndices[i]].SetEmissiveColor(colors[i]);
             wireLEDs[wireIndices[i]].GetComponent<TheToggler>().Toggle(true);
-            inputLEDs[inputIndices[i]].SetColor(ColorPalette.GetLEDEmissiveColor(colors[i]));
+            inputLEDs[inputIndices[i]].SetEmissiveColor(colors[i]);
             inputLEDs[inputIndices[i]].GetComponent<TheToggler>().Toggle(true);
         }
     }
