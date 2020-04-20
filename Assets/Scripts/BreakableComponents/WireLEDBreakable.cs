@@ -29,6 +29,9 @@ public class WireLEDBreakable : BreakableComponent {
         base.SetState(state);
 
         if (state == BreakableState.BROKEN) {
+            foreach(var wireInput in wireInputs) {
+                wireInput.Disconnect();
+            }
             Randomize();
         } else if (state == BreakableState.FUNCTIONAL) {
             SetFunctional();
