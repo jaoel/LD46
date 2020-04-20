@@ -34,21 +34,17 @@ public class KnobInteractable : InteractableComponent {
         base.Update();
         if (_moving)
         {
-            Debug.Log(_moveTargetState);
             if (_moveDuration == 0f) {
                 _moving = false;
                 _moveStartTime = 0.0f;
-                //UpdateState(_moveTargetState);
                 _targetState = _moveTargetState;
             } else {
                 float moveT = Mathf.Clamp01((Time.time - _moveStartTime) / _moveDuration);
                 if (moveT < 1f) {
-                    //UpdateState(Mathf.SmoothStep(_moveStartState, _moveTargetState, moveT));
                     _targetState = Mathf.SmoothStep(_moveStartState, _moveTargetState, moveT);
                 } else {
                     _moving = false;
                     _moveStartTime = 0.0f;
-                    //UpdateState(_moveTargetState);
                     _targetState = _moveTargetState;
                 }
             }
