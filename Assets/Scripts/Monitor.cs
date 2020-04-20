@@ -100,7 +100,6 @@ public class Monitor : MonoBehaviour {
 
                 if (gameManager.Day != updatedDay) {
                     updatedDay = gameManager.Day;
-                    Debug.Log("UPDATED!");
                     if (gameManager.Day == 1) {
                         scrollingText.SetText("LOOK AROUND BY HOLDING DOWN YOUR RIGHT MOUSE BUTTON.");
                     } else {
