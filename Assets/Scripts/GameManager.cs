@@ -136,10 +136,8 @@ public class GameManager : MonoBehaviour
         {
             _siren.volume = Mathf.Clamp(_siren.volume - 0.5f * Time.unscaledDeltaTime, 0.25f, 1.0f);
 
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Time.timeScale = 1.0f;
-                SceneManager.LoadScene("MainMenuScene");
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                LoadMainMenu();
             }
 
             if (Input.GetKeyDown(KeyCode.Return) ||Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
@@ -162,10 +160,8 @@ public class GameManager : MonoBehaviour
 
         if (_paused)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                Time.timeScale = 1.0f;
-                SceneManager.LoadScene("MainMenuScene");
+            if (Input.GetKeyDown(KeyCode.Return)) {
+                LoadMainMenu();
             }
 
             return;
@@ -201,6 +197,14 @@ public class GameManager : MonoBehaviour
             _siren.volume = Mathf.Clamp(_siren.volume - 1.0f * Time.deltaTime, 0.0f, 1.0f);
             _deadStartTime = 0.0f;
         }
+    }
+
+    public void LoadMainMenu() {
+        Time.timeScale = 0.0f;
+        _uiManager.Fade(4.0f, false, "I can't take this anymore! I quit!", () => {
+            Time.timeScale = 1.0f;
+            SceneManager.LoadScene("MainMenuScene");
+        });
     }
 
     private void BreakSomething()

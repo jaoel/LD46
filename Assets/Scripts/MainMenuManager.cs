@@ -21,6 +21,9 @@ public class MainMenuManager : MonoBehaviour
         _musicKnob.MoveTo(0f, AudioManager.Instance.SfxVolume.Volume);
 
         AudioManager.Instance.PlayMusic("MainMenu", true, 0.2f);
+
+        _uiManager.Fade(0f, false, "", () => { });
+        _uiManager.Fade(2.0f, true, "", () => {});
     }
 
     public void OnStartPressed()
