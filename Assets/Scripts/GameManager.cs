@@ -138,35 +138,6 @@ public class GameManager : MonoBehaviour
         if (_dead)
         {
             _siren.volume = Mathf.Clamp(_siren.volume - 0.5f * Time.unscaledDeltaTime, 0.25f, 1.0f);
-
-            if (Input.GetKeyDown(KeyCode.Escape)) {
-                LoadMainMenu();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Return) ||Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-            {
-                AudioManager.Instance.PlayMusic("CalmGameplay");
-                _uiManager.FadeText(1.0f, false, "", () =>
-                {
-                    Time.timeScale = 1.0f;
-                    SceneManager.LoadScene("DevScene");
-                });
-            }
-
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape) && !_uiManager.Fading)
-        {
-            TogglePause();
-        }
-
-        if (_paused)
-        {
-            if (Input.GetKeyDown(KeyCode.Return)) {
-                LoadMainMenu();
-            }
-
             return;
         }
 
@@ -209,9 +180,12 @@ public class GameManager : MonoBehaviour
 
     public void LoadMainMenu() {
         Time.timeScale = 0.0f;
-        _uiManager.Fade(4.0f, false, "I can't take this anymore! I quit!", () => {
-            Time.timeScale = 1.0f;
-            SceneManager.LoadScene("MainMenuScene");
+        _uiManager.Fade(2.0f, false, "I can't take this anymore! I quit!", () => {
+            _uiManager.FadeText(2.0f, false, "I can't take this anymore! I quit!", () =>
+            {
+                Time.timeScale = 1.0f;
+                SceneManager.LoadScene("MainMenuScene");
+            });
         });
     }
 
@@ -292,7 +266,7 @@ public class GameManager : MonoBehaviour
     private void HandleLoss()
     {
         _camera.Shake(1.5f, 0.05f);
-        AudioManager.Instance.PlayMusic("GameOver", true, 5.0f);
+        AudioManager.Instance.PlayMusic("GameOver", true, 2.0f);
         _dead = true;
 
         if (UnityEngine.Random.Range(0, 100) < 10)
@@ -305,7 +279,15 @@ public class GameManager : MonoBehaviour
         _startTime = Time.time;
         _deadStartTime = 0.0f;
 
-        _uiManager.Fade(2.0f, false, "You are dead\nPress Escape to exit\nPress Enter or Mouse to restart");
+        _uiManager.Fade(4.0f, false, "You are dead...\nYour family will receive your last paycheck as per your contract.",
+            () => 
+            {
+                _uiManager.FadeText(4.0f, false, "", () =>
+                {
+                    Time.timeScale = 1.0f;
+                    SceneManager.LoadScene("MainMenuScene");
+                });
+            });
     }
 
     private void TogglePause()
