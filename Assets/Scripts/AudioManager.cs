@@ -45,6 +45,7 @@ public class AudioManager : MonoBehaviour {
     [SerializeField] private AudioClip _calmGameplay = null;
     [SerializeField] private AudioClip _angryGameplay = null;
     [SerializeField] private AudioClip _gameOver = null;
+    [SerializeField] private AudioClip _win = null;
 
 
     public MixerChannelVolume MasterVolume { get; private set; } = null;
@@ -111,7 +112,7 @@ public class AudioManager : MonoBehaviour {
         }
         else if (key == "Win")
         {
-
+            _queuedCoroutines.Enqueue(PlayMusicFade(_musicSource, _win, loop, fadeTime));
         }
     }
 

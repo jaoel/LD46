@@ -50,6 +50,7 @@ MonoBehaviour:
   _calmGameplay: {fileID: 8300000, guid: 1871700dbe269f6468d2bd40056d4308, type: 3}
   _angryGameplay: {fileID: 8300000, guid: cb958f33f4f02c244ad93749d838a8b9, type: 3}
   _gameOver: {fileID: 8300000, guid: fdf39b06b13f88248ae425e08197d8cd, type: 3}
+  _win: {fileID: 8300000, guid: ea2c8f9036ea7394085c03c1fb040041, type: 3}
 --- !u!82 &8004195658372896186
 AudioSource:
   m_ObjectHideFlags: 0

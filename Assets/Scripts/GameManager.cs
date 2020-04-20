@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
         if (_currentLevel > _maxLevels)
         {
             _paused = true;
-
+            AudioManager.Instance.PlayMusic("Win", true, 2.0f);
             _uiManager.Fade(10.0f, true, " ", () =>
             {
                 _uiManager.Fade(2.0f, false, "You have completed our game, yay\nPress Enter to return to Main Menu", () =>
