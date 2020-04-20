@@ -289,22 +289,28 @@ PrefabInstance:
     - target: {fileID: 2925424808117809667, guid: 9743e6cd6b7e88744b8e9f3d42e4de6c,
         type: 3}
       propertyPath: m_text
-      value: LUDUM DARE 46!!!
+      value: 'Coding: Bentebent | Coding/Art: Jaoel | Puzzle Master: Bentebent |
+        Music by Kevin McLeod'
       objectReference: {fileID: 0}
     - target: {fileID: 2925424808117809667, guid: 9743e6cd6b7e88744b8e9f3d42e4de6c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 16
+      value: 88
       objectReference: {fileID: 0}
     - target: {fileID: 2925424808117809667, guid: 9743e6cd6b7e88744b8e9f3d42e4de6c,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 2
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2925424808117809667, guid: 9743e6cd6b7e88744b8e9f3d42e4de6c,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 3
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925424808117809667, guid: 9743e6cd6b7e88744b8e9f3d42e4de6c,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3910108776942565082, guid: 9743e6cd6b7e88744b8e9f3d42e4de6c,
         type: 3}
