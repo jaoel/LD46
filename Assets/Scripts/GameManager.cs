@@ -68,6 +68,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject _confettiPrefab;
 
+    [SerializeField]
+    private ClickAnywhereFader _clickAnywhereFader;
+
     private List<BreakableComponent> _breakableComponents = new List<BreakableComponent>();
     private PanelConfiguration _panelConfiguration;
 
@@ -76,6 +79,7 @@ public class GameManager : MonoBehaviour
     private float _deadStartTime = 0.0f;
     private bool _dead = false;
     private float _timeSinceLastBreak = 0.0f;
+    private bool _clickToReturnToMenu = false;
 
     public int Day => _currentLevel + 1;
     public int FunctionalComponentCount => _breakableComponents.Where(x => x.State == BreakableState.FUNCTIONAL).Count();
@@ -119,6 +123,7 @@ public class GameManager : MonoBehaviour
         _paused = false;
         _deadStartTime = 0.0f;
         WonTheGame = false;
+        _clickToReturnToMenu = false;
 
         _currentLevel = 0;
         _uiManager.FadeText(4.0f, true, GetLevelText(), () =>
@@ -140,9 +145,20 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(_clickToReturnToMenu) {
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) {
+                _clickAnywhereFader.SetVisible(false);
+                _uiManager.FadeText(2.0f, false, "", () => {
+                    Time.timeScale = 1.0f;
+                    SceneManager.LoadScene("MainMenuScene");
+                });
+            }
+        }
+
         if (_dead)
         {
             _siren.volume = Mathf.Clamp(_siren.volume - 0.5f * Time.unscaledDeltaTime, 0.25f, 1.0f);
+
             return;
         }
         
@@ -236,11 +252,8 @@ public class GameManager : MonoBehaviour
             {
                 _uiManager.Fade(4.0f, false, "Thanks for playing!", () =>
                 {
-                    _uiManager.FadeText(2.0f, false, "Thanks for playing!", () =>
-                    {
-                        Time.timeScale = 1.0f;
-                        SceneManager.LoadScene("MainMenuScene");
-                    });
+                    _clickAnywhereFader.SetVisible(true);
+                    _clickToReturnToMenu = true;
                 });
             });
         }
@@ -298,13 +311,9 @@ public class GameManager : MonoBehaviour
         _deadStartTime = 0.0f;
 
         _uiManager.Fade(4.0f, false, "You are dead...\nYour family will receive your last paycheck as per your contract.",
-            () => 
-            {
-                _uiManager.FadeText(4.0f, false, "", () =>
-                {
-                    Time.timeScale = 1.0f;
-                    SceneManager.LoadScene("MainMenuScene");
-                });
+            () => {
+                _clickAnywhereFader.SetVisible(true);
+                _clickToReturnToMenu = true;
             });
     }
 
