@@ -23,11 +23,6 @@ public class WireLEDBreakable : BreakableComponent {
     protected override void Update()
     {
         base.Update();
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SetState(BreakableState.BROKEN);
-        }
     }
 
     public override void SetState(BreakableState state) {

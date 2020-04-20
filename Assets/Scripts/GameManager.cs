@@ -151,11 +151,6 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            _startTime = float.MinValue; 
-        }
-
         BreakSomething();
 
         if (Time.time - _startTime >= _timelimit)
