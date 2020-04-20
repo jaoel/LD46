@@ -1575,7 +1575,7 @@ PrefabInstance:
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _panelConfigurations.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
@@ -1660,6 +1660,24 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1914087456}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _panelConfigurations.Array.data[3]
+      value: 
+      objectReference: {fileID: 102327694234697157, guid: 4df3d46d857bc774d826e3fff5179b1f,
+        type: 3}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _panelConfigurations.Array.data[4]
+      value: 
+      objectReference: {fileID: 2148474673494308136, guid: 25241db6f75cd3c49902b67c68fd692b,
+        type: 3}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _panelConfigurations.Array.data[5]
+      value: 
+      objectReference: {fileID: 7773333353062969479, guid: 47cef6d45bcf39744a318a06524a004f,
+        type: 3}
     - target: {fileID: 7528466270842237125, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: m_Name

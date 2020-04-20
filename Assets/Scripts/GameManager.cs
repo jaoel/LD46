@@ -167,6 +167,11 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            _startTime = float.MinValue; 
+        }
+
         BreakSomething();
 
         if (Time.time - _startTime >= _timelimit)
@@ -312,8 +317,17 @@ public class GameManager : MonoBehaviour
         _dead = false;
         _breakableComponents = new List<BreakableComponent>();
         _timelimit = _timeLimits[Mathf.Clamp(_currentLevel, 0, _timeLimits.Count - 1)];
-        _panelConfiguration = Instantiate(
+
+        if (_currentLevel >= 2)
+        {
+            _panelConfiguration = Instantiate(_panelConfigurations[Random.Range(2, _panelConfigurations.Count)], 
+                _baseStation.transform);
+        }
+        else
+        {
+            _panelConfiguration = Instantiate(
             _panelConfigurations[Mathf.Clamp(_currentLevel, 0, _panelConfigurations.Count - 1)], _baseStation.transform);
+        }
 
         _panelConfiguration.LargePanels.ForEach(x =>
         {
