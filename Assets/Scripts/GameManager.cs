@@ -65,6 +65,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<string> _storyText = new List<string>();
 
+    [SerializeField]
+    private GameObject _confettiPrefab;
+
     private List<BreakableComponent> _breakableComponents = new List<BreakableComponent>();
     private PanelConfiguration _panelConfiguration;
 
@@ -230,12 +233,16 @@ public class GameManager : MonoBehaviour
         {
             _paused = true;
             AudioManager.Instance.PlayMusic("Win", true, 2.0f);
+            GameObject go = Instantiate(_confettiPrefab);
             _uiManager.Fade(10.0f, true, " ", () =>
             {
-                _uiManager.Fade(2.0f, false, "You have completed our game, yay\nPress Enter to return to Main Menu", () =>
+                _uiManager.Fade(4.0f, false, "Thanks for playing!", () =>
                 {
-                    //Destroy(_panelConfiguration.gameObject);
-                    //_paused = true;
+                    _uiManager.FadeText(2.0f, false, "Thanks for playing!", () =>
+                    {
+                        Time.timeScale = 1.0f;
+                        SceneManager.LoadScene("MainMenuScene");
+                    });
                 });
             });
         }
@@ -251,9 +258,12 @@ public class GameManager : MonoBehaviour
                     Time.timeScale = 1.0f;
                     _uiManager.FadeText(2.0f, true, GetLevelText(), () =>
                     {
-                        _uiManager.Fade(2.0f, true, GetLevelText(), () =>
+                        _uiManager.FadeText(1.0f, true, GetLevelText(), () =>
                         {
-                            _startTime = Time.time;
+                            _uiManager.Fade(2.0f, true, GetLevelText(), () =>
+                            {
+                                _startTime = Time.time;
+                            });
                         });
                     });
                 });

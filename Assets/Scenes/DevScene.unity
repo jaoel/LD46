@@ -1719,6 +1719,12 @@ PrefabInstance:
       propertyPath: _storyText.Array.data[3]
       value: That was way too stressful...
       objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _confettiPrefab
+      value: 
+      objectReference: {fileID: 7010855373226180653, guid: 127149387f122db42a6ccdc3a9c5e054,
+        type: 3}
     - target: {fileID: 7528466270842237125, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: m_Name
