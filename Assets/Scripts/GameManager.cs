@@ -62,6 +62,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private FirstPersonCamera _camera;
 
+    [SerializeField]
+    private List<string> _storyText = new List<string>();
+
     private List<BreakableComponent> _breakableComponents = new List<BreakableComponent>();
     private PanelConfiguration _panelConfiguration;
 
@@ -278,7 +281,7 @@ public class GameManager : MonoBehaviour
     {
         if (_maxLevels != int.MaxValue)
         {
-            return "Day " + (_currentLevel + 1) + " of " + (_maxLevels + 1) + "...";
+            return "Day " + (_currentLevel + 1) + " of " + (_maxLevels + 1) + "...\n" + _storyText[_currentLevel];
         }
         else
         {

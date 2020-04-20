@@ -1584,6 +1584,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
+      propertyPath: _storyText.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
       propertyPath: _panelConfigurations.Array.data[0]
       value: 
       objectReference: {fileID: 9032775775809845297, guid: e5f60ec08d690414da96b62f6cd46472,
@@ -1678,6 +1683,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7773333353062969479, guid: 47cef6d45bcf39744a318a06524a004f,
         type: 3}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _storyText.Array.data[0]
+      value: My first day as an intern...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _storyText.Array.data[1]
+      value: Hope tomorrow is more stimulating...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _storyText.Array.data[2]
+      value: Well that wasn't so bad...
+      objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237125, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: m_Name
