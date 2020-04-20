@@ -1708,6 +1708,16 @@ PrefabInstance:
       propertyPath: _storyText.Array.data[6]
       value: My last day as an intern...
       objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _storyText.Array.data[4]
+      value: I never asked for this...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _storyText.Array.data[3]
+      value: That was way too stressful...
+      objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237125, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: m_Name
