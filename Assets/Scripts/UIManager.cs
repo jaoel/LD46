@@ -103,11 +103,14 @@ public class UIManager : MonoBehaviour
             }
 
             timePassed += Time.unscaledDeltaTime;
+            AudioManager.Instance.SfxVolume.SetFade(1f - _blackScreen.color.a);
             yield return null;
         }
 
         _blackScreen.color = fadeIn ? Color.clear : Color.black;
         _text.color = fadeIn ? Color.clear : Color.white;
+
+        AudioManager.Instance.SfxVolume.SetFade(Mathf.SmoothStep(0f, 1f, 1f - _blackScreen.color.a));
 
         onComplete?.Invoke();
 

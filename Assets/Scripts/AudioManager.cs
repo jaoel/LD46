@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour {
         private AudioMixer _audioMixer;
 
         public float Volume { get; private set; } = 1f;
+        public float Fade { get; private set; } = 1f;
 
         public MixerChannelVolume(string parameterName, AudioMixer audioMixer) {
             _parameterName = parameterName;
@@ -22,8 +23,16 @@ public class AudioManager : MonoBehaviour {
         public void SetVolume(float volume) {
             Volume = Mathf.Clamp01(volume);
             PlayerPrefs.SetFloat("MixerChannelVolume" + _parameterName, Volume);
+            UpdateVolume();
+        }
 
-            float logVolume = Mathf.Clamp(Mathf.Log(Mathf.Lerp(0.001f, 1f, Volume)) * 20f, -80f, 0f);
+        public void SetFade(float fade) {
+            Fade = Mathf.Clamp01(fade);
+            UpdateVolume();
+        }
+
+        private void UpdateVolume() {
+            float logVolume = Mathf.Clamp(Mathf.Log(Mathf.Lerp(0.001f, 1f, Volume * Fade)) * 20f, -80f, 0f);
             _audioMixer.SetFloat(_parameterName, logVolume);
         }
     }
