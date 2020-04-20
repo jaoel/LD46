@@ -34,6 +34,7 @@ public class KnobInteractable : InteractableComponent {
         base.Update();
         if (_moving)
         {
+            _isGrabbed = false;
             if (_moveDuration == 0f) {
                 _moving = false;
                 _moveStartTime = 0.0f;
