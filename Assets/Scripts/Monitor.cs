@@ -37,8 +37,7 @@ public class Monitor : MonoBehaviour {
         "HELLO THERE.",
         "GENERAL KENOBI!",
         "WHY DID THE CHICKEN CROSS THE ROAD?",
-        "I HOPE YOU HAVE A GREAT DAY :3",
-        "THANKS FOR PLAYING!",
+        "I HOPE YOU'RE HAVING A GREAT DAY!",
         "YOU'RE DOING GREAT!",
     };
 
