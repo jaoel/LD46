@@ -1691,7 +1691,7 @@ PrefabInstance:
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _storyText.Array.data[1]
-      value: Hope tomorrow is more stimulating...
+      value: Hope today is more stimulating...
       objectReference: {fileID: 0}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
