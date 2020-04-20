@@ -1493,7 +1493,7 @@ PrefabInstance:
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
       propertyPath: _mediumLandscapeBreakables.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
@@ -1584,6 +1584,12 @@ PrefabInstance:
       propertyPath: _smallBreakables.Array.data[3]
       value: 
       objectReference: {fileID: 8135849060329621495, guid: 93102eac5f622b94c9738baa1e3e00ff,
+        type: 3}
+    - target: {fileID: 909035722555433291, guid: a469751b76c578c47ae7f8582b31dfb4,
+        type: 3}
+      propertyPath: _mediumLandscapeBreakables.Array.data[3]
+      value: 
+      objectReference: {fileID: 8494043786446656769, guid: cfea7f3b993577142b724f51808788ac,
         type: 3}
     - target: {fileID: 7528466270842237124, guid: a469751b76c578c47ae7f8582b31dfb4,
         type: 3}
