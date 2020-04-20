@@ -17,8 +17,8 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start() {
         _masterKnob.MoveTo(0f, AudioManager.Instance.MasterVolume.Volume);
-        _sfxKnob.MoveTo(0f, AudioManager.Instance.MusicVolume.Volume);
-        _musicKnob.MoveTo(0f, AudioManager.Instance.SfxVolume.Volume);
+        _sfxKnob.MoveTo(0f, AudioManager.Instance.SfxVolume.Volume);
+        _musicKnob.MoveTo(0f, AudioManager.Instance.MusicVolume.Volume);
 
         AudioManager.Instance.PlayMusic("MainMenu", true, 2.0f);
 
