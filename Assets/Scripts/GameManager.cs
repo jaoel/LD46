@@ -214,13 +214,16 @@ public class GameManager : MonoBehaviour
     {
         _timeSinceLastBreak += Time.deltaTime;
 
-        if (_timeSinceLastBreak < _minBreakInterval)
+        float minBreak = _currentLevel < 4 ? _minBreakInterval * 2.0f : _minBreakInterval; //Mathf.Lerp(_minBreakInterval * 2.0f, _minBreakInterval, _currentLevel / 4);
+        float maxBreak = _currentLevel < 4 ? _maxBreakInterval * 2.0f : _maxBreakInterval; //Mathf.Lerp(_maxBreakInterval * 2.0f, _maxBreakInterval, _currentLevel / 4);
+
+        if (_timeSinceLastBreak < minBreak)
         {
             return;
         }
         else
         {
-            if (_timeSinceLastBreak >= _maxBreakInterval || UnityEngine.Random.Range(0.0f, 1.0f) <= _timeSinceLastBreak / _maxBreakInterval)
+            if (_timeSinceLastBreak >= maxBreak || UnityEngine.Random.Range(0.0f, 1.0f) <= _timeSinceLastBreak / maxBreak)
             {
                 _timeSinceLastBreak = 0.0f;
 
